@@ -13,11 +13,11 @@
 <..看護師がストーマ(人工肛門)ケアを行い、その記録を行い評価する.患者さん自身も記録に参加してケア手技取得、管理を促す>
 
 ## 設計書
-<..詳細設計：https://docs.google.com/spreadsheets/d/12E1i1pD1kqmEpb5SJj2rfKiHxxDD3zPl_r0xlWfnjQg/edit?usp=sharing.>
-<テーブル設計：https://docs.google.com/spreadsheets/d/1bx8SvCsppLfETnpaFJdRUfDgm93PP-jJJA1bNeT9QEA/edit?usp=sharing　>
-<ER図：https://drive.google.com/file/d/1klNoHM4Pj3HSxRw4dO6i3kZeTi-BD_hp/view?usp=sharing >
-<ワイヤーフレーム : https://docs.google.com/presentation/d/14siIDvJns7SnPqoIJcYaHP1u-EeUnXq1r6p7OAZJ3vY/edit?usp=sharing　>
-<WBS: https://docs.google.com/spreadsheets/d/1EuvRl_GiJwQZn7Q32JNMP5Xi4jxtYJ2Qkj-Bzmpp154/edit?usp=sharing>
+* <..詳細設計：https://docs.google.com/spreadsheets/d/12E1i1pD1kqmEpb5SJj2rfKiHxxDD3zPl_r0xlWfnjQg/edit?usp=sharing.>
+* <テーブル設計：https://docs.google.com/spreadsheets/d/1bx8SvCsppLfETnpaFJdRUfDgm93PP-jJJA1bNeT9QEA/edit?usp=sharing　>
+* <ER図：https://drive.google.com/file/d/1klNoHM4Pj3HSxRw4dO6i3kZeTi-BD_hp/view?usp=sharing >
+* <ワイヤーフレーム : https://docs.google.com/presentation/d/14siIDvJns7SnPqoIJcYaHP1u-EeUnXq1r6p7OAZJ3vY/edit?usp=sharing　>
+* <WBS: https://docs.google.com/spreadsheets/d/1EuvRl_GiJwQZn7Q32JNMP5Xi4jxtYJ2Qkj-Bzmpp154/edit?usp=sharing>
 
 
 ## チャレンジ要素一覧
