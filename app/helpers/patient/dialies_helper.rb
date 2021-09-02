@@ -1,0 +1,2 @@
+module Patient::DialiesHelper
+end
