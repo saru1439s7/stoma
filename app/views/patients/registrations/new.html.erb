@@ -1,23 +1,16 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<h2>新規登録</h2>
+<%= form_with model: @patient, url: patient_registration_path, id: 'new_patient', class: 'new_patient', local: true do |f| %>
   <%= render "patients/shared/error_messages", resource: resource %>
-
- <div class="field">
-    <%= f.label :"名前" %><br />
+  <div class="field">
+    <%= f.label :名前 %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
-  <div class="field">
-    <%= f.label :名前(かな) %><br />
-    <%= f.text_field :name_kana, autofocus: true %>
-  </div>
 
   <div class="field">
-    <%= f.label :メール %><br />
+    <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-  
-  
+
   <div class="field">
     <%= f.label :パスワード %>
     <% if @minimum_password_length %>
@@ -27,7 +20,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :パスワード(確認) %><br />
+    <%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

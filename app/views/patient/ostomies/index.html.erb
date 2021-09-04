@@ -1,0 +1,18 @@
+<div "container">
+ <div class='row'>
+     <table>
+         <tr>
+             <th>記録した日付</th>
+             <th>いろ</th>
+             <th>むくみ</th>
+         </tr>
+         <% @ostomy.each |ostomy| do%>
+          <tr>
+            <td><%= ostomy.create_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+            <td><%= ostomy.color %></td>
+            <td><%= ostomy.edima r%></td>
+          </tr>
+         <%end%>
+     </table>
+ </div>
+</div>

@@ -4,6 +4,6 @@ class Patient < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
    attachment :image
-   has_many :ostmy
+   has_many :ostomy
    has_many :dialies
 end

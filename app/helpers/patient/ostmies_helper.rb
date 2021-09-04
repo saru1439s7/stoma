@@ -1,2 +1,0 @@
-module Patient::OstmiesHelper
-end

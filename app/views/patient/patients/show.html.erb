@@ -1,0 +1,23 @@
+<div "container">
+  <div class='row'>
+    <h4>マイページ</h4>
+    <div>
+      <%=link_to "編集する",edit_patient_path%>
+    </div>
+    <div>
+      <%=link_to "ストーマの記録",edit_patient_path%>
+    </div>
+    <table>
+      <tr>
+        <th>名前</th>
+        <td><%= @patient.name %></td>
+      </tr>
+      <tr>
+        <th>名前(かな)</th>
+        <td><%= @patient.name_kana %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @patient.email %></td>
+      </tr>
+    </table>

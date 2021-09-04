@@ -1,0 +1,2 @@
+module Staff::OstomiesHelper
+end

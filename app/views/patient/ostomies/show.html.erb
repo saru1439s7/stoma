@@ -1,0 +1,40 @@
+<div class="container">
+ <div class="row">
+  <div class="<col></col>">
+          
+   <h2>ストマの記録</h2>
+    <div class="col-8">
+     <table class='table table-borderless'>
+        <tr>
+          <th>ストーマのいろ</th>
+          <td><%= @osomy.color%></td>
+        </tr>
+        <tr>
+          <th>むくみ</th>
+          <td><%= @osomy.edima%></td>
+        </tr>
+        <tr>
+          <th>ひふの状態</th>
+          <td><%= @osomy.skin%></td>
+        </tr>
+        <tr>
+          <th>ストマのたての長さ</th>
+          <td><%= @osomy.h_size%></td>
+        </tr>
+        <tr>
+          <th>ストマのよこの長さ</th>
+          <td><%= @osomy.w_size%></td>
+        </tr>
+        <tr>
+          <th>コメントメモ</th>
+          <td><%= @osomy.comment%></td>
+        </tr>
+        <tr>
+          <th>写真</th>
+          <td><%= attachment_image_tag(@osomy, :image, fallback: "no_image.jpg", size: "300x300") %></td>
+        </tr>
+     </table>
+    </div>
+  </div>
+ </div>
+</div>

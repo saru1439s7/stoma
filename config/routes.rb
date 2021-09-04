@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  #devise_for :staffs
-  #devise_for :patients
    devise_for :staffs,controllers: {
     sessions: 'staffs/sessions',
     registrations: 'staffs/registrations',
@@ -10,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :patients,controllers: {
     sessions: 'patients/sessions',
     registrations: 'patients/registrations',
-   passwords: 'patients/passwords'}
+    passwords: 'patients/passwords'}
 
     root 'patient/patients#top'
   # 患者さん
@@ -25,7 +23,7 @@ Rails.application.routes.draw do
     resources :records,:except => [:destroy]
     #resources :dialies,:only [:index,:show]
     #resources :ostomies,:only [:index,:show]
-    #resources :patients,:except => [:destroy,:new]
+    #resources :patients,:except => [:destroy,:new,:create]
   end
 
 end

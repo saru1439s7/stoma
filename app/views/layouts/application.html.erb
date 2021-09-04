@@ -23,6 +23,10 @@
           <div class = "clooapse navbar-collapse" id = "navbarNavDropdown">
             <ul class = "navbar-nav ml-auto">
                <% if patient_signed_in? %>
+                <li class = "nav-item px-5">
+                 <%= link_to 'ストーマの記録をかく', new_ostomy_path %>
+                </li>
+
                <% else %>
                <%end%>
                <% if staff_signed_in? %>

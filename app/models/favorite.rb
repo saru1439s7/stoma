@@ -1,4 +1,4 @@
 class Favorite < ApplicationRecord
   belongs_to :staff
-  belongs_to :ostmy
+  belongs_to :ostomy
 end
