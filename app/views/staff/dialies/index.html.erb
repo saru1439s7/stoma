@@ -1,0 +1,21 @@
+<div "container">
+ <div class='row'>
+   <% @dialies.each do |dialy|%>
+     <table>
+         <tr>
+             <th>記録した日付</th>
+             <th>血圧</th>
+             <th>調子</th>
+         </tr>
+
+          <tr>
+            <td><%= dialy.created_at.strftime('%Y/%m/%d') %></td>
+            <td><%= dialy.systolic_bp%>/<%= dialy.diastolic_bp%>mmHg</td>
+            <td><%= dialy.feeling_i18n %></td>
+          </tr>
+          <tr><td><%=link_to "詳細を見る",dialy_path(dialy),class: "btn btn-success btn-lg"%></td></tr>
+     </table>
+       <%end%>
+
+ </div>
+</div>

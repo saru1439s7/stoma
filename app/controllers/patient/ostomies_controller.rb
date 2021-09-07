@@ -1,17 +1,7 @@
 class Patient::OstomiesController < ApplicationController
-  
-  def new
-     @ostomy = Ostomy.new(ostomy_params)
-  end
 
-  def careate
-     @ostomy = Ostomy.new(ostomy_params)
-     @ostomy.patient_id = current_patient.id
-     if @ostomy.save
-       redirect_to ostomy_path(current_ostomy)
-     else
-       render :new
-     end
+  def new
+     @ostomy = Ostomy.new
   end
 
   def show
@@ -19,17 +9,27 @@ class Patient::OstomiesController < ApplicationController
   end
 
   def index
-    @ostomies.all
+    @ostomies= Ostomy.all
   end
 
   def edit
     @ostomy = Ostomy.find(params[:id])
   end
 
+  def create
+     @ostomy = Ostomy.new(ostomy_params)
+     @ostomy.patient_id = current_patient.id
+     if @ostomy.save
+       redirect_to patient_ostomy_path(@ostomy)
+     else
+       render :new
+     end
+  end
+
   def update
     @ostomy = Ostomy.find(params[:id])
     if @ostomy.update(ostomy_params)
-      redirect_to ostomy_path
+      redirect_to patient_ostomy_path(@ostomy)
     else
       render :edit
     end
@@ -37,6 +37,6 @@ class Patient::OstomiesController < ApplicationController
 
   private
     def ostomy_params
-     params.require(:ostomy).permit.(:color,:edema,:skin,:h_size,:w_size,:comment,:image)
+     params.require(:ostomy).permit(:color,:edema,:skin,:h_size,:w_size,:comment,:image)
     end
 end

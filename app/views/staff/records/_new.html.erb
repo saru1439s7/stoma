@@ -1,0 +1,66 @@
+<script></script>
+<h4>ABCモデルでストーマの状態を記録する</h4>
+<%= form_with(model:[@patient, @record], url:staff_record_path(patient.id),local: true) do |f| %>
+  <div id= "count">
+  <table>
+   <tr>
+     <th>A:近接部:ストーマからストーマ装具の皮膚保護剤までの範囲</br></th>
+     <td>
+       <%= f.label :acceptable, '障害なし' %><%= f.radio_button :adjacent,"acceptable"%>
+       <%= f.label :erythema,'紅斑' %><%= f.radio_button :adjacent,"erythema"%>
+       <%= f.label :erosion , 'びらん' %><%= f.radio_button :adjacent, "erosion" %>
+       <%= f.label :blister , '水疱・膿疱' %><%= f.radio_button :adjacent, "blister" %>
+       <%= f.label :ulceration , '潰瘍・組織増大' %><%= f.radio_button :adjacent, "ulceration" %>
+     </td>
+   </tr>
+   <tr>
+     <th>B:皮膚保護剤部:皮膚保護剤が触れていた範囲</th>
+     <td>
+       <%= f.label :acceptable, '障害なし' %><%= f.radio_button :barrier,"acceptable"%>
+       <%= f.label :erythema,'紅斑' %><%= f.radio_button :barrier,"erythema"%>
+       <%= f.label :erosion , 'びらん' %><%= f.radio_button :barrier, "erosion" %>
+       <%= f.label :blister , '水疱・膿疱' %><%= f.radio_button :barrier, "blister" %>
+       <%= f.label :ulceration , '潰瘍・組織増大' %><%= f.radio_button :barrier, "ulceration" %>
+     </td>
+   </tr>
+   <tr>
+     <th>C:皮膚保護剤外部</th>
+     <td>
+       <%= f.label :acceptable, '障害なし' %><%= f.radio_button :circumscribing,"acceptable"%>
+       <%= f.label :erythema,'紅斑' %><%= f.radio_button :circumscribing,"erythema"%>
+       <%= f.label :erosion , 'びらん' %><%= f.radio_button :circumscribing, "erosion" %>
+       <%= f.label :blister , '水疱・膿疱' %><%= f.radio_button :circumscribing, "blister" %>
+       <%= f.label :ulceration , '潰瘍・組織増大' %><%= f.radio_button :circumscribing, "ulceration" %>
+     </td>
+   </tr>
+   <tr>
+     <th>D:ABCの合わせた部位の色調の変化</th>
+     <td>
+       <%= f.label :acceptable, '障害なし' %><%= f.radio_button :discoloration,"acceptable"%>
+       <%= f.label :spot,'色素沈着' %><%= f.radio_button :discoloration,"spot"%>
+       <%= f.label :depigmentation , '色素脱失' %><%= f.radio_button :discolorationr, "depigmentation" %>
+       <%= f.label :both, '色素沈着・色素脱失' %><%= f.radio_button :discolorationr, "both" %>
+     </td>
+   </tr>
+   <tr>
+     <th>ストマのたての長さ</th>
+     <td><%= f.number_field :h_size, min:20 %>mm</td>
+   </tr>
+   <tr>
+     <th>ストマのよこの長さ</th>
+     <td><%= f.number_field :w_size, min:20 %>mm</td>
+   </tr>
+   <tr>
+      <th>コメント・メモ</th>
+      <td>
+        <%=f.text_area :comment %>
+      </td>
+   </tr>
+   <tr>
+      <th>写真を貼る</th>
+      <td><%=f.attachment_field :image %></td>
+   </tr>
+  </table>
+  </div>
+  <%= f.submit "記録",class: "btn btn-primary" %>
+<%end%>

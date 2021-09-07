@@ -1,0 +1,81 @@
+ja:
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%m/%d"
+      long: "%Y年%m月%d日(%a)"
+
+    day_names: [日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日]
+    abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
+
+    month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%y/%m/%d %H:%M"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
+    am: "午前"
+    pm: "午後"
+  enums:
+    ostomy:
+      color:
+        pink: ピンク
+        red: あか
+        brown: ちゃいろ
+        black: くろ
+        other: その他
+      skin:
+        same: 前回と同じ
+        red: あか
+        brown: ちゃいろ
+        white: しろ
+        blister: むくみ
+      edema:
+        normal: なし
+        edema: むくみあり
+    dialy:
+      color:
+        light_brown: うすちゃいろ
+        red: あか
+        brown: ちゃいろ
+        black: くろ
+        orange: オレンジ
+        other: その他
+      feeling:
+        usual: ふつう
+        well: よい
+        good: とてもいい
+        tired: 疲れている
+        little_bad: ややわるい
+        bad: わるい
+    record:
+      adjacent:
+        acceptable: 障害なし
+        erythema: 紅斑
+        erosion: びらん
+        blister: 水疱・膿疱
+        ulceration: 潰瘍・組織増大
+      barrier:
+        acceptable: 障害なし
+        erythema: 紅斑
+        erosion: びらん
+        blister: 水疱・膿疱
+        ulceration: 潰瘍・組織増大
+      circumscribing:
+        acceptable: 障害なし
+        erythema: 紅斑
+        erosion: びらん
+        blister: 水疱・膿疱
+        ulceration: 潰瘍・組織増大
+      discoloration:
+        acceptable: 障害なし
+        spot: 色素沈着
+        depigmentation: 色素脱失
+        both: 色素沈着・色素脱失

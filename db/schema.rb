@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_02_003330) do
+ActiveRecord::Schema.define(version: 2021_09_04_015409) do
+
+  create_table "calenders", force: :cascade do |t|
+    t.integer "patient_id", null: false
+    t.string "title"
+    t.text "body"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "staff_id", null: false
-    t.string "ostmy_id", null: false
+    t.string "ostomy_id", null: false
     t.string "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,12 +32,12 @@ ActiveRecord::Schema.define(version: 2021_09_02_003330) do
 
   create_table "dialies", force: :cascade do |t|
     t.integer "patient_id", null: false
-    t.string "weight", null: false
-    t.string "bp", null: false
+    t.string "weight"
+    t.string "systolic_bp"
+    t.string "diastolic_bp"
     t.string "bt"
     t.string "bs"
-    t.integer "color　"
-    t.integer "amount"
+    t.integer "color"
     t.integer "feeling"
     t.string "comment"
     t.string "image_id"
@@ -37,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_09_02_003330) do
 
   create_table "favorites", force: :cascade do |t|
     t.string "staff_id", null: false
-    t.string "ostmy_id", null: false
+    t.string "ostomy_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,9 +57,9 @@ ActiveRecord::Schema.define(version: 2021_09_02_003330) do
     t.integer "color", null: false
     t.integer "edema", null: false
     t.integer "skin", null: false
-    t.string "h_size　"
+    t.string "h_size"
     t.string "w_size"
-    t.string "comment"
+    t.text "comment"
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -75,7 +85,7 @@ ActiveRecord::Schema.define(version: 2021_09_02_003330) do
     t.integer "barrier", null: false
     t.integer "circumscribing", null: false
     t.integer "discolor", null: false
-    t.string "h_size　"
+    t.string "h_size"
     t.string "w_size"
     t.string "comment"
     t.string "image_id"

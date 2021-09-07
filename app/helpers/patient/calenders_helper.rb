@@ -1,0 +1,2 @@
+module Patient::CalendersHelper
+end

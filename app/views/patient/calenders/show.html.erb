@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>
+      <%=@calender.starts_at.strftime("%m-%d") %>〜の予定
+    </th>
+    <td><%= @calender.title%></td>
+  </tr>
+  <tr>
+    <th>内容:</th>
+    <td><%=@calender.body%></td>
+  </tr>
+  <tr>
+    <th>時間</th>
+    <td> <%=@calender.starts_at.strftime("%m-%d") %>〜
+     <%=@calender.ends_at.strftime("%m-%d") %></td>
+  </tr>
+</table>
+<%= link_to"編集する",edit_calenders_path,class:"btn btn-success"%>
+<%= link_to"削除する",calender_path, method: :delete, class:"btn btn-danger"%>
+<%= link_to"カレンダーにもどる",calenders_path,class:"btn btn-primary"%>
+

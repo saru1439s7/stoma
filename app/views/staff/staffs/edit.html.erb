@@ -1,0 +1,16 @@
+<div "container">
+  <div class='row'>
+    <div class='col-8 offset-2'>
+      <h4 class="pt-3">編集</h4>
+      <%= form_with url:staff_staff_path, model:@staff,local:true do |f| %>
+        <table class="table table-borderless">
+          <tr>
+            <th>氏名</th>
+            <td><%= f.text_field:name %></td>
+          </tr>
+        </table>
+        <%=f.submit "登録する", class: "btn btn-success "%>
+      <%end%>
+    </div>
+  </div>
+</div>

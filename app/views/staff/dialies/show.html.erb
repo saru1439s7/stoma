@@ -1,0 +1,43 @@
+<div class="container">
+ <div class="row">
+
+   <h2>健康記録<br><%= @dialy.created_at.strftime('%Y/%m/%d') %></h2>
+    <div class="col-8">
+     <table class='table table-borderless'>
+        <tr>
+          <th>血圧</th>
+          <td><%= @dialy.systolic_bp%>/<%= @dialy.diastolic_bp%>mmHg</td>
+        </tr>
+        <tr>
+          <th>体温</th>
+          <td><%= @dialy.bt%></td>
+        </tr>
+        <tr>
+          <th>血糖</th>
+          <td><%= @dialy.bs%></td>
+        </tr>
+        <tr>
+          <th>体重</th>
+          <td><%= @dialy.weight%></td>
+        </tr>
+        <tr>
+          <th>便の色</th>
+          <td><%= @dialy.color_i18n%></td>
+        </tr>
+        <tr>
+          <th>調子</th>
+          <td><%= @dialy.feeling_i18n%></td>
+        </tr>
+        <tr>
+          <th>コメントメモ</th>
+          <td><%= @dialy.comment%></td>
+        </tr>
+        <tr>
+          <th>写真</th>
+          <td><!--< %= attachment_image_tag(@dialy, :image, fallback: "no_image.jpg", size: "300x300") %>--></td>
+        </tr>
+     </table>
+<%=link_to '編集する',edit_dialy_path(@dialy), class: "btn btn-success btn-lg" %>
+  </div>
+ </div>
+</div>

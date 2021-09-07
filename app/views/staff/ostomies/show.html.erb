@@ -1,0 +1,44 @@
+<div class="container">
+ <div class="row">
+   <h2><%=@ostomy.patient.name%>さんのストマの記録<br><%=@ostomy.created_at.strftime('%Y/%m/%d') %></h2>
+    <div class="col-8">
+     <table class='table table-borderless'>
+        <tr>
+          <th>ストーマのいろ</th>
+          <td><%= @ostomy.color_i18n%></td>
+        </tr>
+        <tr>
+          <th>むくみ</th>
+          <td><%= @ostomy.edema_i18n%></td>
+        </tr>
+        <tr>
+          <th>ひふの状態</th>
+          <td><%= @ostomy.skin_i18n%></td>
+        </tr>
+        <tr>
+          <th>ストマのたての長さ</th>
+          <td><%= @ostomy.h_size%></td>
+        </tr>
+        <tr>
+          <th>ストマのよこの長さ</th>
+          <td><%= @ostomy.w_size%></td>
+        </tr>
+        <tr>
+          <th>コメントメモ</th>
+          <td><%= @ostomy.comment%></td>
+        </tr>
+        <tr>
+          <th>写真</th>
+          <td><!--< %= attachment_image_tag(@ostomy, :image, fallback: "no_image.jpg", size: "300x300") %>--></td>
+        </tr>
+     </table>
+  </div>
+ </div>
+</div>
+
+<div>
+<%= form_with(model:[@ostomy, @comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "コメントする" ,%>
+<% end %>
+</div>

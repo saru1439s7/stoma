@@ -70,9 +70,10 @@ gem 'jquery-rails'
 gem 'rubocop-airbnb'
 gem 'kaminari','~> 1.2.1'
 gem 'dotenv-rails'
-gem 'better_errors'
+#gem 'better_errors'
 
 #カレンダー
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
+gem 'enum_help', '~> 0.0.17'

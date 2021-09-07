@@ -1,34 +1,35 @@
 <div class='container'>
   <div class='row'>
     <h4>ストーマの記録を編集</h4>
-    <%=form_with model: @ostomy, url :ostomy_path , method: :patch,local: true do |f|%>
+    <%= form_with model: @ostomy, url: patient_ostomy_path,method: :patch,local: true do |f|%>
+
      <table>
         <tr>
             <th>ストーマのいろ</th>
             <td>
-            　<%= f.label :pink, 'ピンク' %><%= f.radio_button :color%>
-              <%= f.label :red ,'あか' %><%= f.radio_button :color %>
-              <%= f.label :blown , 'ちゃいろ' %><%= f.radio_button :color %>
-              <%= f.label :black , 'くろ' %><%= f.radio_button :color %>
-              <%= f.label :other, 'そのほか' %><%= f.radio_button :color %>
+            　<%= f.label :pink, 'ピンク' %><%= f.radio_button :color,"pink"%>
+              <%= f.label :red ,'あか' %><%= f.radio_button :color,"red"%>
+              <%= f.label :brown , 'ちゃいろ' %><%= f.radio_button :color, "brown" %>
+              <%= f.label :black , 'くろ' %><%= f.radio_button :color, "black" %>
+              <%= f.label :other, 'そのほか' %><%= f.radio_button :color, "other" %>
             </td>
         </tr>
         <tr>
             <th>むくみ</th>
             <td>
-              <%= f.label :absense, 'なし' %><%= f.radio_button :edema %>
-              <%= f.label :presense,'あり' %><%= f.radio_button :edema %>
+              <%= f.radio_button :edema, "normal" %><%= f.label :normal, 'なし' %>
+              <%= f.radio_button :edema, "edema" %><%= f.label :edema,'むくみあり'%>
             </td>
         </tr>
          <tr>
             <th>ひふの状態</th>
             <td>
-              <%= f.label :same, '前回と同じ' %><%= f.radio_button :skin %>
-              <%= f.label :red ,'あかい' %><%= f.radio_button :skin %>
-              <%= f.label :blown , 'ちゃいろ' %><%= f.radio_button :skin %>
-              <%= f.label :black , '黒' %><%= f.radio_button :skin %>
-              <%= f.label :white, 'しろ' %><%= f.radio_button :skin %>
-              <%= f.label :other, '水疱' %><%= f.radio_button :skin %>
+              <%= f.label :same, '前回と同じ' %><%= f.radio_button :skin,"same" %>
+              <%= f.label :red ,'あかい' %><%= f.radio_button :skin,"red"%>
+              <%= f.label :blown , 'ちゃいろ' %><%= f.radio_button :skin,"brown"%>
+              <%= f.label :black , 'くろ' %><%= f.radio_button :skin,"black" %>
+              <%= f.label :white, 'しろ' %><%= f.radio_button :skin,"white"%>
+              <%= f.label :other, '水疱' %><%= f.radio_button :skin,"blister"%>
             </td>
             </td>
         </tr>
@@ -51,9 +52,9 @@
             <td><%=f.attachment_field :image %></td>
         </tr>
       </table>
-    
+
     <%= f.submit "変更を保存" %>
     <%end%>
-  
+
   </div>
 </div>

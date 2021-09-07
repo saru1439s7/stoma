@@ -12,9 +12,41 @@
 //
 //= require jquery3
 //= require popper
-//= require bootstrap-sprockets
+
+//= require rails-ujs
+//= require activestorage
+//= require jquery.min
+//= require jquery-ui.min
+//= require moment.min
+//= require fullcalendar.min
+//= require ja
 
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//https://the-oreno-michi.com/103/参考に作成
+
+$(function () {
+
+
+  $('#calendar_test').fullCalendar({
+    selectable: true,
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+    //消したevents: "/calender.json",
+    events: '/patient/calenders.json',
+    color: 'yellow',
+    textColor: 'black',
+
+    select: function(startDate, endDate) {
+      $('#new_calender').modal('show');
+      $(".input-start").val(moment(startDate).format("YYYY-MM-DD HH:mm"));
+      $(".input-end").val(moment(endDate).format("YYYY-MM-DD HH:mm"));
+    }
+  });
+});

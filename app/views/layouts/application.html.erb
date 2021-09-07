@@ -4,50 +4,51 @@
     <title>Stoma</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </head>
 
-  <body>
 
-    <header>
-      <nav class ="navbar navbar-expand-lg navbar-light">
-        <div class ="container">
-          <a class = "navbar-band p-3" href="/">
-           　トップページ <!--< %= image_tag '',:size =>"50x50" %> あとで入れる-->
-          </a>
-          <button class = "navvar-toggelr" type = "button" data-tougle="collapse" data-target="#navbarNavDropdown" aria-controls = "navbarNavDropdown" aria-expanded = "false" aria-label = "Toggle navigation">
-           <span class ="navbar-toggler-icon"></span>
+
+  <body>
+     <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+             <%= link_to "トップページ",patient_calenders_path,class: "btn btn-success btn-lg"%>
+     <header class="shadow-sm">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
-          <div class = "clooapse navbar-collapse" id = "navbarNavDropdown">
-            <ul class = "navbar-nav ml-auto">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
                <% if patient_signed_in? %>
                 <li class = "nav-item px-5">
-                 <%= link_to 'ストーマの記録をかく', new_ostomy_path %>
+                 <%= link_to 'ストーマの記録', new_patient_ostomy_path,class: "btn btn-success btn-lg" %>
                 </li>
-
+                <li class = "nav-item px-5">
+                 <%= link_to '健康記録', new_patient_dialy_path,class: "btn btn-success btn-lg" %>
+                </li>
+                <li class = "nav-item px-5">
+                <%=link_to "記録を終える　ログアウト",destroy_patient_session_path,class: "btn btn-success btn-lg"%>
+                </li>
                <% else %>
                <%end%>
                <% if staff_signed_in? %>
+              <li class = "nav-item px-5"><%= link_to "患者一覧",staff_patients_path,class: "btn btn-success btn-lg" %></li>
+
                <% else %>
+              <li class = "nav-item px-5"></li>
+              <li class = "nav-item px-5"></li>
+              <li class = "nav-item px-5"></li>
                <%end%>
-              <li class = "nav-item px-5">
-                <!-- < %= link_to "記録",ostmy_path %>-->
-              </li>
-              <li class = "nav-item px-5"></li>
-              <li class = "nav-item px-5"></li>
-              <li class = "nav-item px-5"></li>
-              <li class = "nav-item px-5"></li>
-              <li class = "nav-item px-5"></li>
-              <li class = "nav-item px-5"></li>
-              <li class = "nav-item px-5"></li>
+
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    <footer></footer>
     <%= yield %>
   </body>
 </html>
