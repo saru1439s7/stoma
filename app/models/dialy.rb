@@ -1,5 +1,5 @@
 class Dialy < ApplicationRecord
-  attachment :image
+  has_one_attached :image
   belongs_to :patient
   
   enum color: {"brown":0,"black": 1,"light_brown": 2,"orange": 3,"yellow":4,"red":5,"other":6},_prefix:true

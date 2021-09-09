@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row">
 
-   <h2>ストマの記録<br><%=@record.created_at.strftime('%Y/%m/%d') %></h2>
+   <h3><%=@record.patient.name%>さんのストマの記録<%=@record.created_at.strftime('%Y/%m/%d')%></h3>
     <div class="col-8">
      <table class='table table-borderless'>
         <tr>
@@ -10,7 +10,7 @@
         </tr>
         <tr>
           <th>B:皮膚保護剤部:皮膚保護剤が触れていた範囲</th>
-          <td><%= @record.barrie_i18n%></td>
+          <td><%= @record.barrier_i18n%></td>
         </tr>
         <tr>
           <th>C:皮膚保護剤外部</th>
@@ -18,7 +18,7 @@
         </tr>
         <tr>
           <th>D:ABCの合わせた部位の色調の変化</th>
-          <td><%= @record.discoloration_i18n %></td>
+          <td><%= @record.discolor_i18n %></td>
         </tr>
         <tr>
           <th>ABCモデル合計</th>
@@ -38,10 +38,14 @@
         </tr>
         <tr>
           <th>写真</th>
-          <td><!--< %= attachment_image_tag(@record, :image, fallback: "no_image.jpg", size: "300x300") %>--></td>
+          <td><!--< % if@record.image.attached? %>
+                  < %= image_tag @record.image %>
+                  < % else %>
+                  < %= image_tag 'no_image.jpg' %>
+                  < % end %>--></td>
         </tr>
      </table>
-<%= link_to '編集する',patient_edit_record_path(@record), class: "btn btn-success btn-lg" %>
+   <%= link_to '編集する',edit_staff_patient_record_path, class: "btn btn-success btn-lg" %>
   </div>
  </div>
 </div>

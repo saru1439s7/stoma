@@ -23,7 +23,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-               <% if patient_signed_in? %>
+                <!--ログインの条件わけ-->
+               <% if patient_signed_in? %> <!--患者さんログイン-->
                 <li class = "nav-item px-5">
                  <%= link_to 'ストーマの記録', new_patient_ostomy_path,class: "btn btn-success btn-lg" %>
                 </li>
@@ -31,17 +32,23 @@
                  <%= link_to '健康記録', new_patient_dialy_path,class: "btn btn-success btn-lg" %>
                 </li>
                 <li class = "nav-item px-5">
-                <%=link_to "記録を終える　ログアウト",destroy_patient_session_path,class: "btn btn-success btn-lg"%>
+                <%=link_to "記録を終える ログアウト",destroy_patient_session_path,method: :delete,class: "btn btn-success btn-lg"%>
                 </li>
-               <% else %>
+               <% else %><!--患者さん未ログイン-->
+               <li>
+                  <%=link_to"ログインする",new_patient_session_path,class:"btn btn-success btn-lg"%>
+               </li>
+               <li class = "nav-item px-5"></li>
+              <li class = "nav-item px-5"></li>
                <%end%>
-               <% if staff_signed_in? %>
-              <li class = "nav-item px-5"><%= link_to "患者一覧",staff_patients_path,class: "btn btn-success btn-lg" %></li>
-
-               <% else %>
-              <li class = "nav-item px-5"></li>
-              <li class = "nav-item px-5"></li>
-              <li class = "nav-item px-5"></li>
+               <% if staff_signed_in? %><!--医療スタッフログイン-->
+                <li class = "nav-item px-5">
+                    <%= link_to "患者一覧",staff_patients_path,class: "btn btn-success btn-lg" %>
+                </li>
+               <% else %><!--医療スタッフ未ログイン-->
+              <li class = "nav-item px-5">
+                <%=link_to"スタッフログイン",new_staff_session_path,class:"btn btn-success btn-lg"%>
+              </li>
                <%end%>
 
             </ul>

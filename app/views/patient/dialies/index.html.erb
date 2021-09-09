@@ -1,0 +1,27 @@
+<div "container">
+ <div class='row'>
+   <h4>健康記録</h4>
+
+    <div class='col-6'>
+   <table class="table table-bordered border-dark">
+     <tr>
+        <th>記録した日付</th>
+        <th>血圧</th>
+        <th>体重</th>
+        <th>便の色</th>
+      </tr>
+      <% @dialies.each do |dialy|%>
+      <tr>
+        <td><%= dialy.created_at.strftime('%Y/%m/%d') %></td>
+        <td><%= dialy.systolic_bp%>/<%= dialy.diastolic_bp%>mmHG</td>
+        <td><%= dialy.weight %>kg</td>
+        <td><%= dialy.color_i18n %></td>
+        <td><%= link_to "詳細を見る",patient_dialy_path(dialy),class: "btn btn-success btn-lg"%></td>
+      </tr>
+       <%end%>
+   </table>
+
+
+   </div>
+  </div>
+</div>

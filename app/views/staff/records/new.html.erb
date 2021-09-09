@@ -1,6 +1,6 @@
 <script></script>
 <h4>ABCモデルでストーマの状態を記録する</h4>
-<%= form_with(model:[@record,@patient], url: staff_patient_records_path(@patient.id),local: true) do |f| %>
+<%= form_with(model:@record, url: staff_patient_records_path(@patient.id,@record.id),method: :post ,local: true) do |f| %>
   <div id= "count">
   <table>
    <tr>
@@ -36,10 +36,10 @@
    <tr>
      <th>D:ABCの合わせた部位の色調の変化</th>
      <td>
-       <%= f.label :acceptable, '障害なし' %><%= f.radio_button :discoloration,"acceptable"%>
-       <%= f.label :spot,'色素沈着' %><%= f.radio_button :discoloration,"spot"%>
-       <%= f.label :depigmentation , '色素脱失' %><%= f.radio_button :discolorationr, "depigmentation" %>
-       <%= f.label :both, '色素沈着・色素脱失' %><%= f.radio_button :discolorationr, "both" %>
+       <%= f.label :acceptable, '障害なし' %><%= f.radio_button :discolor,"acceptable"%>
+       <%= f.label :spot,'色素沈着' %><%= f.radio_button :discolor,"spot"%>
+       <%= f.label :depigmentation , '色素脱失' %><%= f.radio_button :discolor, "depigmentation" %>
+       <%= f.label :both, '色素沈着・色素脱失' %><%= f.radio_button :discolor, "both" %>
      </td>
    </tr>
         <!--障害なし0,1,2,3,15点-->
@@ -63,7 +63,7 @@
    </tr>
    <tr>
       <th>写真を貼る</th>
-      <td><%=f.attachment_field :image %></td>
+      <td><%=f.file_field :image %></td>
    </tr>
   </table>
   </div>

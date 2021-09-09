@@ -6,7 +6,7 @@ class Patient::CalendersController < ApplicationController
 
   def create
     @calender = Calender.new(calender_params)
-    @calender.patient_id = current_patient.id
+    #@calender.patient_id = current_patient.id
     @calender.save
     #jsの時は↓入れると読み込まれなくなる
     # if @calender.save
@@ -18,15 +18,17 @@ class Patient::CalendersController < ApplicationController
 
   def update
     @calender = Calender.find(params[:id])
-    if @calender.update
-      redirect_to patient_calenders_path
-    else
-      render :edit
-    end
+    @calender.update
+    # if @calender.update
+    #   redirect_to patient_calenders_path
+    # else
+    #  render :edit
+    #end
   end
 
   def edit
     @calender = Calender.find(params[:id])
+    @calender = Calender.find(params[:calender_id])
   end
 
   def destroy
@@ -38,6 +40,7 @@ class Patient::CalendersController < ApplicationController
   def index
     @calenders = Calender.all
     @calender = Calender.new
+    #@edit_calender = Calender.find(params[:calender_id])
   end
 
   def show

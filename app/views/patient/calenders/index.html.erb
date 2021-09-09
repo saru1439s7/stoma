@@ -1,29 +1,10 @@
 <header>
 <!--<script src='fullcalendar/dist/locale/ja.js'></script>-->
 </header>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset='utf-8'>
-<link href='css/fullcalendar/main.css' rel='stylesheet'>
-<script src='js/fullcalendar/main.js'></script>
-<script>
-(function() {
-    'use strict';
-
-    const calendarEl = document.querySelector('.calendar');
-    const calendar = new FullCalendar.Calendar(calendarEl);
-
-    calendar.render();
-}());
-</script>
-</head>
-
-
-
 <div id="calendar_test">
 </div>
-<!--modalで呼び出す部分-->
+
+<!--modalで予定作成　呼び出す部分-->
 <div class="modal" id="new_calender" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -49,14 +30,12 @@
                 <%= f.text_field :body, class: "form-control"%>
                 </div>
               </div>
-
               <div class="form-group">
                 <%= f.label :starts_at, "開始時間", class: "form-control-label"%>
                 <div class="input-group" data-target-input="nearest">
                   <%= f.text_field :starts_at, class: "form-control input-start"%>
                 </div>
               </div>
-
               <div class="form-group">
                 <%= f.label :ends_at, "終了時間", class: "form-control-label"%>
                 <div class="input-group" data-target-input="nearest">
@@ -64,7 +43,6 @@
                 </div>
               </div>
             </div>
-
             <div class="modal-footer actions">
               <%= f.submit "入力完了", class: "btn btn-primary" %>
             </div>
@@ -74,4 +52,5 @@
     </div>
   </div>
 </div>
+<!--modalで予定編集　呼び出す部分-->
 

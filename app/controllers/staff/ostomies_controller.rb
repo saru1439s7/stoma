@@ -7,22 +7,27 @@ class Staff::OstomiesController < ApplicationController
    @patient = Patient.find(patient.id)
   end
 
-  def show #showページでコメントする
-    @ostomy = Ostomy.find(patient.id)
+  def show #showページでコメントを作る
     @comment = Comment.new
+    @ostomy = Ostomy.find(params[:id])
   end
 
   def create
-    ostomy = Ostomy.find(params[:ostomy_id])
-    comment = current_staff.comment.new(comment_params)
-    comment.ostomy_id = ostomy.id
-    if comment.save
-     redirect_to ostomy_path(ostomy)
+    @ostomy = Ostomy.find(params[:ostomy_id])
+    @comment = current_staff.comment.new(comment_params)
+    @comment.ostomy_id = ostomy.id
+    if @comment.save
+     redirect_to staff_ostomy_path(@ostomy)
     else
      render :show
     end
   end
 
   def destroy
+  end
+
+  private
+  def ostomy_params
+      params.require(:ostomy).permit(:color,:edema,:skin,:h_size,:w_size,:comment,:image)
   end
 end

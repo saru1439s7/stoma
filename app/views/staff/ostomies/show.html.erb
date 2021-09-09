@@ -29,7 +29,32 @@
         </tr>
         <tr>
           <th>写真</th>
-          <td><!--< %= attachment_image_tag(@ostomy, :image, fallback: "no_image.jpg", size: "300x300") %>--></td>
+          <td>
+            <!--< % if@ostomy.image.attached? %>
+                  < %= image_tag @ostomy.image %>
+                  < % else %>
+                  < %= image_tag 'no_image.jpg' %>
+                  < % end %>-->
+          </td>
+        </tr>
+        <tr>
+          <th>スタッフコメント</th>
+          <td id="staff_comment">
+            <% @ostomy.comments.each do |comment| %>
+              <%= comment.staff.name %>
+              <%= comment.created_at.strftime('%Y/%m/%d') %>
+              <%= comment.comment %>
+            <% end %>
+           </td>
+        </tr>
+        <tr>
+          <th></th>
+          <td class="comment">
+            <%= form_with model:[@ostomy, @comment],url:staff_ostomy_comments_path(@ostomy) do |f| %>
+            <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+            <%= f.submit "コメントする",class: "btn btn-success"%>
+            <% end %>
+          </td>
         </tr>
      </table>
   </div>
@@ -37,8 +62,5 @@
 </div>
 
 <div>
-<%= form_with(model:[@ostomy, @comment], local: true) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-  <%= f.submit "コメントする" ,%>
-<% end %>
+
 </div>

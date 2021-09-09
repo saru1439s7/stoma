@@ -4,8 +4,12 @@ class Staff::DialiesController < ApplicationController
     @dialies = Dialy.all
   end
   def show
-    @dialy = Dialy.find(patient.id)
+    @dialy = Dialy.find(params[:id])
   end
-  
-  
+
+  private
+  def dialy_params
+    params.require(:dialy).permit(:weight,:systolic_bp,:diastolic_bp,:bt,:bs,:color,:feeling,:comment,:image)
+  end
+
 end

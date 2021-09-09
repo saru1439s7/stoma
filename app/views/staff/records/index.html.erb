@@ -1,0 +1,22 @@
+<div "container">
+ <div class='row'>
+   <div class='col-6'>
+<%@records.each do |record|%>
+<table>
+  <tr>
+    <th>記録作成日</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= record.created_at.strftime('%Y/%m/%d')%><</td>
+    <td></td>
+    <td></td>
+    <td><%=link_to "詳細を見る",staff_patient_record_path(patient.id,record.id),class:"btn btn-success"%></td>
+  </tr>
+</table>
+<%end%>
+</div>
+</div>
+</div>

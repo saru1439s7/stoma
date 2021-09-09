@@ -36,6 +36,7 @@ class Patient::DialiesController < ApplicationController
     @dialy = Dialy.find(params[:id])
   end
 
+ private
   def dialy_params
     params.require(:dialy).permit(:weight,:systolic_bp,:diastolic_bp,:bt,:bs,:color,:feeling,:comment,:image)
   end

@@ -20,10 +20,10 @@
 //= require moment.min
 //= require fullcalendar.min
 //= require ja
-
+//= require turbolinks
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+
 //= require_tree .
 
 //https://the-oreno-michi.com/103/参考に作成
@@ -47,6 +47,61 @@ $(function () {
       $('#new_calender').modal('show');
       $(".input-start").val(moment(startDate).format("YYYY-MM-DD HH:mm"));
       $(".input-end").val(moment(endDate).format("YYYY-MM-DD HH:mm"));
-    }
+    },
+
+    eventClick: function(event) {
+      $('#edit_calender').modal('show');
+      $(".input-start").val(moment(startDate).format("YYYY-MM-DD HH:mm"));
+      $(".input-end").val(moment(endDate).format("YYYY-MM-DD HH:mm"));
+    },
+
+
+
+    eventClick:function(event){
+    	var title = prompt('予定を入力してください、削除する場合は未入力で更新してください:', event.title);
+			if(title && title!=""){
+				event.title = title;
+				$('#calendar_test').fullCalendar('updateEvent', event);//イベント（予定）の修正
+			}else{
+				$('#calendar_test').fullCalendar("removeEvents", event.id); //イベント（予定）の削除
+			}
+			 $('#dialogEditEvent').dialog({
+      modal: true,
+      title: title
+    });
+
+    // クリックされたイベント情報をフォームに設定
+    $('#name').val(event.title);
+    $('#start').val(event.start.format('YYYY-MM-DD HH:mm'));
+    $('#end').val(event.end.format('YYYY-MM-DD HH:mm'));
+
+    // FORMのイベント処理
+    $('#editEvent').unbind().submit(function() {
+      var el = $(this),
+      title = el.find('#name').val(),
+      start = el.find('#start').val(),
+      end = el.find('#end').val();
+
+      if(end == '') {
+        end = start;
+      }
+
+      if(title != '' ) {
+        event.title = title;
+        event.start = moment(start);
+        event.end = moment(end);
+
+        operateEvent(state, event);
+
+        $('#dialogEditEvent').dialog('close');
+      } else {
+        alert('Empty Fields Or Bad Date Format');
+      }
+
+      return false;
+    });
+  }
+
+
   });
 });

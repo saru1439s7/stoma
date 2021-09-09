@@ -8,8 +8,9 @@ class CreateRecords < ActiveRecord::Migration[5.2]
       t.integer :discolor, null: false
       t.string :h_size
       t.string :w_size
+      t.string :d_size
       t.string :comment
-      t.string :image_id
+     
       t.timestamps
     end
   end

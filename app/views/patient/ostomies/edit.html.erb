@@ -2,7 +2,6 @@
   <div class='row'>
     <h4>ストーマの記録を編集</h4>
     <%= form_with model: @ostomy, url: patient_ostomy_path,method: :patch,local: true do |f|%>
-
      <table>
         <tr>
             <th>ストーマのいろ</th>
@@ -49,7 +48,7 @@
         </tr>
          <tr>
             <th>写真を貼る</th>
-            <td><%=f.attachment_field :image %></td>
+            <td><%=f.file_field :image %></td>
         </tr>
       </table>
 

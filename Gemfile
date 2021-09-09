@@ -77,3 +77,6 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
 gem 'enum_help', '~> 0.0.17'
+
+#画像
+gem 'image_processing', '~> 1.2'

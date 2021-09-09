@@ -50,7 +50,7 @@
         </tr>
          <tr>
             <th>写真を貼る</th>
-            <td><%=f.attachment_field :image %></td>
+            <td><%= f.file_field :image %></td>
         </tr>
       </table>
         <%= f.submit '記録する',class: "btn btn-success btn-lg" %>

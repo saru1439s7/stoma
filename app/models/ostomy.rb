@@ -1,5 +1,5 @@
 class Ostomy < ApplicationRecord
-  attachment :image
+  has_one_attached :image
   belongs_to :patient
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy

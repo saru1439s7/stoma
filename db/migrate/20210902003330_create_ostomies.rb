@@ -9,7 +9,7 @@ class CreateOstomies < ActiveRecord::Migration[5.2]
       t.string :h_size
       t.string :w_size
       t.text :comment
-      t.string :image_id
+     
       t.timestamps
     end
   end
