@@ -80,3 +80,10 @@ gem 'enum_help', '~> 0.0.17'
 
 #画像
 gem 'image_processing', '~> 1.2'
+
+
+#デプロイに必要なもの
+gem 'dotenv-rails'
+group :production do
+ gem 'mysql2'
+end
