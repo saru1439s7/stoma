@@ -4,6 +4,7 @@
     <title>Stoma</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
@@ -26,13 +27,13 @@
                 <!--ログインの条件わけ-->
                <% if patient_signed_in? %> <!--患者さんログイン-->
                 <li class = "nav-item px-5">
-                 <%= link_to 'ストーマの記録', new_patient_ostomy_path,class: "btn btn-success btn-lg" %>
+               <%= link_to 'ストーマの記録', new_patient_ostomy_path,class: "btn btn-success btn-lg" %>
                 </li>
                 <li class = "nav-item px-5">
-                 <%= link_to '健康記録', new_patient_dialy_path,class: "btn btn-success btn-lg" %>
+                    <%= link_to '健康記録', new_patient_dialy_path,class: "btn btn-success btn-lg" %>
                 </li>
                 <li class = "nav-item px-5">
-                <%=link_to "記録を終える ログアウト",destroy_patient_session_path,method: :delete,class: "btn btn-success btn-lg"%>
+                <%=link_to "記録完了 ログアウト",destroy_patient_session_path,method: :delete,class: "btn btn-success btn-lg"%>
                 </li>
                <% else %><!--患者さん未ログイン-->
                <li>

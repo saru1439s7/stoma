@@ -1,9 +1,12 @@
 <div class="container">
- <div class="row">
-
-   <h2>健康記録<br><%= @dialy.created_at.strftime('%Y/%m/%d') %></h2>
-    <div class="col-8">
-     <table class='table table-borderless'>
+  <div class="row">
+   <div class="col-12  p-lg-4">
+    <h2>健康記録:<%= @dialy.created_at.strftime('%Y/%m/%d') %></h2>
+   </div>
+  </div>
+  <div class="row">
+    <div class="col-9 align-middle font-weight-bold center-block">
+      <table class='table text-center'>
         <tr>
           <th>血圧</th>
           <td><%= @dialy.systolic_bp%>/<%= @dialy.diastolic_bp%>mmHg</td>
@@ -41,8 +44,11 @@
                   < % end %>-->
          </td>
         </tr>
+        <tr>
+          <th></th>
+          <td> <%=link_to '編集する',edit_patient_dialy_path(@dialy), class: "btn btn-success btn-lg" %></td>
+        </tr>
      </table>
-<%=link_to '編集する',edit_patient_dialy_path(@dialy), class: "btn btn-success btn-lg" %>
+    </div>
   </div>
- </div>
 </div>

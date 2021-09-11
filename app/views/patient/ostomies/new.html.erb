@@ -1,61 +1,90 @@
 <div class="container">
   <h4>ストマの記録をかく</h4>
-  <div class="row">
-      <% if @ostomy.errors.any? %><% end %>
-
-      <div>
-      <%= form_with model: @ostomy, url: patient_ostomies_path,local: true do |f| %>
-      <table>
-        <tr>
-            <th>ストーマのいろ</th>
-            <td>
-              <%= f.label :pink, 'ピンク' %><%= f.radio_button :color,"pink"%>
-              <%= f.label :red ,'あか' %><%= f.radio_button :color,"red"%>
-              <%= f.label :brown , 'ちゃいろ' %><%= f.radio_button :color, "brown" %>
-              <%= f.label :black , 'くろ' %><%= f.radio_button :color, "black" %>
-              <%= f.label :other, 'そのほか' %><%= f.radio_button :color, "other" %>
-            </td>
-        </tr>
-        <tr>
-            <th>むくみ</th>
-            <td>
-              <%= f.radio_button :edema, "normal" %><%= f.label :normal, 'なし' %>
-              <%= f.radio_button :edema, "edema" %><%= f.label :edema,'むくみあり'%>
-            </td>
-        </tr>
-         <tr>
-            <th>ひふの状態</th>
-            <td>
-              <%= f.label :same, '前回と同じ' %><%= f.radio_button :skin,"same" %>
-              <%= f.label :red ,'あかい' %><%= f.radio_button :skin,"red"%>
-              <%= f.label :blown , 'ちゃいろ' %><%= f.radio_button :skin,"brown"%>
-              <%= f.label :black , 'くろ' %><%= f.radio_button :skin,"black" %>
-              <%= f.label :white, 'しろ' %><%= f.radio_button :skin,"white"%>
-              <%= f.label :other, '水疱' %><%= f.radio_button :skin,"blister"%>
-            </td>
-            </td>
-        </tr>
-        <tr>
-            <th>ストマのたての長さ</th>
-            <td><%= f.number_field :h_size, min:20 %>mm</td>
-        </tr>
-         <tr>
-            <th>ストマのよこの長さ</th>
-            <td><%= f.number_field :w_size, min:20 %>mm</td>
-        </tr>
-         <tr>
-            <th>コメント・メモ</th>
-            <td>
-              <%=f.text_area :comment %>
-            </td>
-        </tr>
-         <tr>
-            <th>写真を貼る</th>
-            <td><%= f.file_field :image %></td>
-        </tr>
-      </table>
-        <%= f.submit '記録する',class: "btn btn-success btn-lg" %>
-      <%end%>
-      </div>
-  </div>
+    <div class="row"> <% if @ostomy.errors.any? %><% end %>
+        <div class ="col-8">
+          <%= form_with model: @ostomy, url: patient_ostomies_path,local: true do |f| %>
+            <table class ="table">
+              <tr>
+                  <th>ストーマのいろ</th>
+                  <td>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-success active">
+                    <%= f.label :pink, 'ピンク' %><%= f.radio_button :color,"pink"%>
+                     </label>
+                    <label class="btn btn-outline-success active">
+                    <%= f.label :red ,'あか' %><%= f.radio_button :color,"red"%>
+                    </label>
+                    <label class="btn btn-outline-success active">
+                    <%= f.label :brown,'ちゃいろ' %><%= f.radio_button :color,"brown" %>
+                    </label>
+                    <label class="btn btn-outline-success active">
+                    <%= f.label :black , 'くろ' %><%= f.radio_button :color, "black" %>
+                    </label>
+                    <label class="btn btn-outline-success active">
+                    <%= f.label :other, 'そのほか' %><%= f.radio_button :color, "other" %>
+                      </label>
+                  </div>
+                  </td>
+              </tr>
+              <tr>
+                  <th>むくみ</th>
+                  <td>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-success active">
+                    <%= f.radio_button :edema, "normal" %><%= f.label :normal, 'なし' %>
+                    </label>
+                    <label class="btn btn-outline-success active">
+                    <%= f.radio_button :edema, "edema" %><%= f.label :edema,'むくみあり'%>
+                    </label>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                  <th>ひふの状態</th>
+                  <td>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-success active">
+                    <%= f.label :same, '前回と同じ' %><%= f.radio_button :skin,"same" %>
+                    </label>
+                    <label class="btn btn-outline-success active">
+                    <%= f.label :red ,'あかい' %><%= f.radio_button :skin,"red"%>
+                     </label>
+                    <label class="btn btn-outline-success active">
+                    <%= f.label :blown , 'ちゃいろ' %><%= f.radio_button :skin,"brown"%>
+                     </label>
+                    <label class="btn btn-outline-success active">
+                    <%= f.label :black , 'くろ' %><%= f.radio_button :skin,"black" %>
+                     </label>
+                    <label class="btn btn-outline-success active">
+                    <%= f.label :white, 'しろ' %><%= f.radio_button :skin,"white"%>
+                     </label>
+                    <label class="btn btn-outline-success active">
+                    <%= f.label :other, '水疱' %><%= f.radio_button :skin,"blister"%>
+                     </label>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                  <th>ストマのたての長さ</th>
+                  <td><%= f.number_field :h_size, min:20 %>mm</td>
+              </tr>
+              <tr>
+                  <th>ストマのよこの長さ</th>
+                  <td><%= f.number_field :w_size, min:20 %>mm</td>
+              </tr>
+              <tr>
+                  <th>コメント・メモ</th>
+                  <td>
+                    <%=f.text_area :comment %>
+                  </td>
+              </tr>
+               <tr>
+                  <th>写真を貼る</th>
+                  <td><%= f.file_field :image %></td>
+              </tr>
+            </table>
+          <%= f.submit '記録する',class: "btn btn-success btn-lg" %>
+          <%end%>
+        </div>
+    </div>
 </div>

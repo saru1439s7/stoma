@@ -1,21 +1,29 @@
 <div "container">
+ <div  class="col-lg-8 p-md-4">
+  <h4>ストーマ記録一覧</h4>
+ </div>
  <div class='row'>
-   <% @ostomies.each do |ostomy|%>
-     <table>
+<div  class="col-8 justify-content-md-around" style="background-color: ;">
+     <table class="table">
          <tr>
              <th>記録した日付</th>
              <th>いろ</th>
              <th>むくみ</th>
+             <th></th>
          </tr>
-
+          <% @ostomies.each do |ostomy|%>
           <tr>
             <td><%= ostomy.created_at.strftime('%Y/%m/%d') %></td>
             <td><%= ostomy.color_i18n %></td>
             <td><%= ostomy.edema_i18n %></td>
-          </tr>
-          <tr><td><%=link_to "詳細を見る",patient_ostomy_path(ostomy),class: "btn btn-success btn-lg"%></td></tr>
-     </table>
-       <%end%>
 
+
+           <td><%=link_to "詳細を見る",patient_ostomy_path(ostomy),class: "btn btn-success btn-lg"%>
+           </td>
+           </tr>
+           <%end%>
+     </table>
+</div>
+</div>
  </div>
 </div>

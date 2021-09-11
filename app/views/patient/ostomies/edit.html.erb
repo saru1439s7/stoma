@@ -1,59 +1,93 @@
-<div class='container'>
-  <div class='row'>
-    <h4>ストーマの記録を編集</h4>
-    <%= form_with model: @ostomy, url: patient_ostomy_path,method: :patch,local: true do |f|%>
-     <table>
+<div class="container">
+ <h4>ストーマの記録を編集</h4>
+  <div class="row">
+    <div class ="col-8 p-lg-4">
+     <%= form_with model: @ostomy, url: patient_ostomy_path,method: :patch,local: true do |f|%>
+      <table class='table'>
         <tr>
             <th>ストーマのいろ</th>
             <td>
-            　<%= f.label :pink, 'ピンク' %><%= f.radio_button :color,"pink"%>
-              <%= f.label :red ,'あか' %><%= f.radio_button :color,"red"%>
-              <%= f.label :brown , 'ちゃいろ' %><%= f.radio_button :color, "brown" %>
-              <%= f.label :black , 'くろ' %><%= f.radio_button :color, "black" %>
-              <%= f.label :other, 'そのほか' %><%= f.radio_button :color, "other" %>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-success active">
+              　 <%= f.label :pink, 'ピンク' %><%= f.radio_button :color,"pink"%>
+              　</label>
+              　<label class="btn btn-outline-success active">
+                 <%= f.label :red ,'あか' %><%= f.radio_button :color,"red"%>
+                </label>
+              　<label class="btn btn-outline-success active">
+                 <%= f.label :brown , 'ちゃいろ' %><%= f.radio_button :color, "brown" %>
+                </label>
+              　<label class="btn btn-outline-success active">
+                 <%= f.label :black , 'くろ' %><%= f.radio_button :color, "black" %>
+                </label>
+              　<label class="btn btn-outline-success active">
+                 <%= f.label :other, 'そのほか' %><%= f.radio_button :color, "other" %>
+                </label>
+              </div>
             </td>
         </tr>
         <tr>
             <th>むくみ</th>
             <td>
-              <%= f.radio_button :edema, "normal" %><%= f.label :normal, 'なし' %>
-              <%= f.radio_button :edema, "edema" %><%= f.label :edema,'むくみあり'%>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-success active">
+                <%= f.radio_button :edema, "normal" %><%= f.label :normal, 'なし' %>
+                </label>
+              　<label class="btn btn-outline-success active">
+                <%= f.radio_button :edema, "edema" %><%= f.label :edema,'むくみあり'%>
+                </label>
+              </div>
             </td>
         </tr>
-         <tr>
+        <tr>
             <th>ひふの状態</th>
             <td>
-              <%= f.label :same, '前回と同じ' %><%= f.radio_button :skin,"same" %>
-              <%= f.label :red ,'あかい' %><%= f.radio_button :skin,"red"%>
-              <%= f.label :blown , 'ちゃいろ' %><%= f.radio_button :skin,"brown"%>
-              <%= f.label :black , 'くろ' %><%= f.radio_button :skin,"black" %>
-              <%= f.label :white, 'しろ' %><%= f.radio_button :skin,"white"%>
-              <%= f.label :other, '水疱' %><%= f.radio_button :skin,"blister"%>
-            </td>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-success active">
+                 <%= f.radio_button :skin,"same" %><%= f.label :same, '前回と同じ' %>
+                </label>
+              　<label class="btn btn-outline-success active">
+                 <%= f.radio_button :skin,"red"%><%= f.label :red ,'あかい' %>
+                </label>
+              　<label class="btn btn-outline-success active">
+                 <%= f.label :blown , 'ちゃいろ' %><%= f.radio_button :skin,"brown"%>
+                </label>
+              　<label class="btn btn-outline-success active">
+                 <%= f.label :black , 'くろ' %><%= f.radio_button :skin,"black" %>
+                </label>
+              　<label class="btn btn-outline-success active">
+                 <%= f.label :white, 'しろ' %><%= f.radio_button :skin,"white"%>
+                </label>
+              　<label class="btn btn-outline-success active">
+                 <%= f.label :other, '水疱' %><%= f.radio_button :skin,"blister"%>
+                </label>
+              </div>
             </td>
         </tr>
-         <tr>
+        <tr>
             <th>ストマのたての長さ</th>
             <td><%= f.number_field :h_size, min:20 %>mm</td>
         </tr>
-         <tr>
+        <tr>
             <th>ストマのよこの長さ</th>
             <td><%= f.number_field :w_size, min:20 %>mm</td>
         </tr>
-         <tr>
+        <tr>
             <th>コメント・メモ</th>
             <td>
               <%=f.text_area :comment %>
             </td>
         </tr>
-         <tr>
+        <tr>
             <th>写真を貼る</th>
             <td><%=f.file_field :image %></td>
         </tr>
+        <tr>
+          <th></th>
+          <td><%= f.submit "変更を保存",class:"btn btn-success" %></td>
+        </tr>
       </table>
-
-    <%= f.submit "変更を保存" %>
-    <%end%>
-
+     <%end%>
+    </div>
   </div>
 </div>

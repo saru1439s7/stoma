@@ -1,66 +1,69 @@
 <div class="container">
- <div class="row">
-   <h2><%=@ostomy.patient.name%>さんのストマの記録<br><%=@ostomy.created_at.strftime('%Y/%m/%d') %></h2>
-    <div class="col-8">
-     <table class='table table-borderless'>
-        <tr>
-          <th>ストーマのいろ</th>
-          <td><%= @ostomy.color_i18n%></td>
-        </tr>
-        <tr>
-          <th>むくみ</th>
-          <td><%= @ostomy.edema_i18n%></td>
-        </tr>
-        <tr>
-          <th>ひふの状態</th>
-          <td><%= @ostomy.skin_i18n%></td>
-        </tr>
-        <tr>
-          <th>ストマのたての長さ</th>
-          <td><%= @ostomy.h_size%></td>
-        </tr>
-        <tr>
-          <th>ストマのよこの長さ</th>
-          <td><%= @ostomy.w_size%></td>
-        </tr>
-        <tr>
-          <th>コメントメモ</th>
-          <td><%= @ostomy.comment%></td>
-        </tr>
-        <tr>
-          <th>写真</th>
-          <td>
-            <!--< % if@ostomy.image.attached? %>
-                  < %= image_tag @ostomy.image %>
-                  < % else %>
-                  < %= image_tag 'no_image.jpg' %>
-                  < % end %>-->
-          </td>
-        </tr>
-        <tr>
-          <th>スタッフコメント</th>
-          <td id="staff_comment">
-            <% @ostomy.comments.each do |comment| %>
-              <%= comment.staff.name %>
-              <%= comment.created_at.strftime('%Y/%m/%d') %>
-              <%= comment.comment %>
-            <% end %>
-           </td>
-        </tr>
-        <tr>
-          <th></th>
-          <td class="comment">
-            <%= form_with model:[@ostomy, @comment],url:staff_ostomy_comments_path(@ostomy) do |f| %>
-            <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-            <%= f.submit "コメントする",class: "btn btn-success"%>
-            <% end %>
-          </td>
-        </tr>
-     </table>
-  </div>
- </div>
+<div class="row">
+<div class="col-8">
+<h2><%=@ostomy.patient.name%>さんのストマの記録<br><%=@ostomy.created_at.strftime('%Y/%m/%d') %></h2>
 </div>
-
+<div class="row">
+<div class="col-8">
+<table class='table table-borderless'>
+  <tr>
+    <th>ストーマのいろ</th>
+    <td><%= @ostomy.color_i18n%></td>
+  </tr>
+  <tr>
+    <th>むくみ</th>
+    <td><%= @ostomy.edema_i18n%></td>
+  </tr>
+  <tr>
+    <th>ひふの状態</th>
+    <td><%= @ostomy.skin_i18n%></td>
+  </tr>
+  <tr>
+  <th>ストマのたての長さ</th>
+  <td><%= @ostomy.h_size%></td>
+  </tr>
+  <tr>
+    <th>ストマのよこの長さ</th>
+    <td><%= @ostomy.w_size%></td>
+  </tr>
+  <tr>
+    <th>コメントメモ</th>
+    <td><%= @ostomy.comment%></td>
+  </tr>
+  <tr>
+    <th>写真</th>
+    <td>
+    <!--< % if@ostomy.image.attached? %>
+    < %= image_tag @ostomy.image %>
+    < % else %>
+    < %= image_tag 'no_image.jpg' %>
+    < % end %>-->
+    </td>
+  </tr>
+  <tr>
+    <th>スタッフコメント</th>
+    <td id="staff_comment">
+      <% @ostomy.comments.each do |comment| %>
+      <%= comment.staff.name %>
+      <%= comment.created_at.strftime('%Y/%m/%d') %>
+      <%= comment.comment %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+  <th></th>
+  <td class="comment">
+  <%= form_with model:[@ostomy, @comment],url:staff_ostomy_comments_path(@ostomy) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "コメントする",class: "btn btn-success"%>
+  <% end %>
+  </td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+</div>
 <div>
 
 </div>
