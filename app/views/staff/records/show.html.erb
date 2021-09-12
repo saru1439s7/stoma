@@ -20,9 +20,13 @@
           <th>D:ABCの合わせた部位の色調の変化</th>
           <td><%= @record.discolor_i18n %></td>
         </tr>
+      　<tr>
+          <th>A+B+C=合計点</th>
+          <td><%= @record.point %></td>
+        </tr>
         <tr>
-          <th>ABCモデル合計</th>
-          <td><%= @record.comment%></td>
+          <th>D</th>
+          <td><%= @record.d_point %></td>
         </tr>
         <tr>
           <th>ストマのたての長さ</th>
@@ -31,6 +35,10 @@
         <tr>
           <th>ストマのよこの長さ</th>
           <td><%= @record.w_size%>mm</td>
+        </tr>
+        <tr>
+          <th>ストマの高さ</th>
+          <td><%= @record.d_size%>mm</td>
         </tr>
         <tr>
           <th>コメントメモ</th>

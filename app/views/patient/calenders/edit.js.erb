@@ -1,0 +1,12 @@
+$('#calendar_test').fullCalendar(
+  <!--引数のカレンダーをレンダリング-->
+  <!--'renderCalender',-->
+      <!--'renderPatientCalender',-->
+  'renderEvent',
+  <!--データベース登録イベント(JSON形式のデータ)をJavaScriptのオブジェクトに変換-->
+  $.parseJSON("<%=j render(@calender, format: :json).html_safe %>"),
+  <!--リロードしても残す記述-->
+  true
+);
+<!--最後に処理が終了したら、モーダルを閉じる-->
+$('.modal').modal('hide');

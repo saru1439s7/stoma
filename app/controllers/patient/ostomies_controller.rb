@@ -37,6 +37,6 @@ class Patient::OstomiesController < ApplicationController
 
   private
     def ostomy_params
-     params.require(:ostomy).permit(:color,:edema,:skin,:h_size,:w_size,:comment,:image)
+     params.require(:ostomy).permit(:color,:edema,:skin,:h_size,:w_size,:comment,:image,:patient_id)
     end
 end

@@ -38,6 +38,6 @@ class Patient::DialiesController < ApplicationController
 
  private
   def dialy_params
-    params.require(:dialy).permit(:weight,:systolic_bp,:diastolic_bp,:bt,:bs,:color,:feeling,:comment,:image)
+    params.require(:dialy).permit(:weight,:systolic_bp,:diastolic_bp,:bt,:bs,:color,:feeling,:comment,:image,:patient_id)
   end
 end

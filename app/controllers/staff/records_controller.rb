@@ -18,7 +18,7 @@ class Staff::RecordsController < ApplicationController
     @record = Record.new(record_params)
     @record.patient_id = @patient.id
     @record.save!
-    redirect_to staff_patient_record_path(@record,@patient)
+    redirect_to staff_patient_record_path(@patient, @record)
 
 
   end
