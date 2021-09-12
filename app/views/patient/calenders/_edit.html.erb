@@ -1,0 +1,45 @@
+<% calenders.each do |calender|%>
+<!-- tabindex="-1"で通常のタブオーダーから要素削除しても、focus() メソッドを呼び出すことでまだ要素にフォーカスできる-->
+<div id='edit_calender<%=calender.id%>' class="modal fade" tabindex="-1" >
+  <div class ="modal-dialog">
+    <div class="modal-content">
+      <div class ="modal-header">
+        <h3>カレンダー編集</h3>
+      </div>
+      <div class = "modal-body">
+        <%= form_with(model: calender,url: patient_calender_path(calender), method: :put,remote: true) do |f| %>
+            <div class="form-inputs">
+              <div class="form-group">
+                <%= f.label :title, "予定", class: "form-control-label"%>
+                <div class="input-group" data-target-input="nearest">
+                <%= f.text_field :title, class: "form-control"%>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :body, "詳細", class: "form-control-label"%>
+                <div class="input-group" data-target-input="nearest">
+                <%= f.text_field :body, class: "form-control"%>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :starts_at, "開始時間", class: "form-control-label"%>
+                <div class="input-group" data-target-input="nearest">
+                  <%= f.text_field :starts_at, class: "form-control input-start"%>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :ends_at, "終了時間", class: "form-control-label"%>
+                <div class="input-group" data-target-input="nearest">
+                  <%= f.text_field :ends_at, class: "form-control input-end"%>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <%= f.submit "更新する", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

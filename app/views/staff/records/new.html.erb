@@ -1,6 +1,13 @@
-<h4>ABCモデルでストーマの状態を記録する</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+     <h4>ABCモデルでストーマの状態を記録する</h4>
+    </div>
+  </div>
 <%= form_with(model:@record, url: staff_patient_records_path(@patient.id,@record.id),method: :post ,local: true) do |f| %>
-  <table>
+  <div class="row">
+    <div class="col-11">
+     <table class='table table-borderless'>
    <tr>
      <th>A:近接部:ストーマからストーマ装具の皮膚保護剤までの範囲</br></th>
      <td>
@@ -82,7 +89,11 @@
       <th>写真を貼る</th>
       <td><%=f.file_field :image %></td>
    </tr>
+   <tr>
+     <th></th>
+     <td><%= f.submit "記録",class: "btn btn-success" %></td>
+   </tr>
   </table>
+    </div>
   </div>
-  <%= f.submit "記録",class: "btn btn-primary" %>
 <%end%>

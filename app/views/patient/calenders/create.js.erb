@@ -1,7 +1,6 @@
 $('#calendar_test').fullCalendar(
   <!--引数のカレンダーをレンダリング-->
   <!--'renderCalender',-->
-      <!--'renderPatientCalender',-->
   'renderEvent',
   <!--データベース登録イベント(JSON形式のデータ)をJavaScriptのオブジェクトに変換-->
   $.parseJSON("<%=j render(@calender, format: :json).html_safe %>"),
@@ -12,7 +11,13 @@ $('#calendar_test').fullCalendar(
 $('.modal').modal('hide');
 
 
-    <!--calenderClick : function(calender, jscalender , view) {-->
-    <!--            jscalender.prcalenderDefault();-->
-    <!--            $(`#inputScheduleEditForm${calender.id}`).modal('show');-->
-    <!--        }-->
+
+<!--editの?-->
+<!--フォームを空にする-->
+$('input[type="text"]').val('');
+<!--モーダルを消す-->
+$('#new_calender').modal('hide');
+<!--作成した予定を差し替える-->
+$('#edit_calender').html('<%= escape_javascript(render("patient/calenders/edit",  calenders: @calenders)) %>');
+<!--フルカレンダー を一度消しもう一度表示-->
+$('#calendar_test').fullCalendar('refetchEvents')

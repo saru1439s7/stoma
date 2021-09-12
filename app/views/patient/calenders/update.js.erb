@@ -1,0 +1,6 @@
+
+$('edit_calender').html('<%=escape_javascript(render("calenders/edit",calenders:@calenders)%>')
+//モーダルの背景が消える
+$('.modal-backdrop').remove();
+//refetchEventsですべてのソースからイベントを再フェッチし、画面に再レンダリング
+$('#calender_test').fullCalendar('refetchEvents')

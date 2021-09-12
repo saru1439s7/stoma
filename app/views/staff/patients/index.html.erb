@@ -1,23 +1,24 @@
-<div "container">
- <div class='row'>
-   <div class='col-6'>
-<%@patients.each do |patient|%>
- <table>
-   <tr>
-     <th>患者名</th>
-     <th></th>
-     <th></th>
-     <th></th>
-   </tr>
-    <tr>
-     <td><%=patient.name%></td>
-     <td><%= link_to patient.name,staff_patients_path %></td>
-     <td><%= link_to "患者さんのストーマ記録を見る",staff_ostomy_path(patient.id),class: "btn btn-success" %></td>
-     <td><%= link_to "記録をかく",new_staff_patient_record_path(patient.id),class: "btn btn-success"  %></td>
-     <td><%= link_to "記録を見る",staff_patient_record_path(patient,patient.id),class: "btn btn-success"  %></td>
-   </tr>
- </table>
-<%end%>
-</diV>
-</div>
-</div>
+<div class="container">
+ <h3>患者一覧</h3>
+  <div class='row'>
+   <div class='col-8'>
+     　<table class="table">
+       <tr>
+         <th>患者名</th>
+         <th></th>
+         <th></th>
+         <th></th>
+         <th></th>
+       </tr>
+       <%@patients.each do |patient|%>
+       <tr>
+         <td><%= link_to patient.name,staff_patients_path %></td>
+         <td><%= link_to "患者さんのストーマ記録を見る",staff_ostomy_path(patient.id),class: "btn btn-success" %></td>
+         <td><%= link_to "記録をかく",new_staff_patient_record_path(patient.id),class: "btn btn-success"  %></td>
+         <td><%= link_to "記録を見る",staff_patient_record_path(patient,patient.id),class: "btn btn-success"  %></td>
+       </tr>
+       <%end%>
+     </table>
+   </div>
+  </div>
+ </div>
