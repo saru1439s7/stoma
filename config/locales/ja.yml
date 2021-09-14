@@ -18,12 +18,16 @@ ja:
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
               Password confirmation: "確認用パスワード"
-      messages:
-        errors.messages.not_saved: "件保存されていません"
-        record_invalid: 'バリデーションに失敗しました: %{errors}'
-        restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
+  errors:
+    messages:
+      not_saved:
+        one: "エラーが発生したため %{resource} は保存されませんでした。"
+        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+      errors.messages.not_saved: "件保存されていません"
+      record_invalid: 'バリデーションに失敗しました: %{errors}'
+      restrict_dependent_destroy:
+        has_one: "%{record}が存在しているので削除できません"
+        has_many: "%{record}が存在しているので削除できません"
     attributes:
       ostomy:
         color: ストーマの色
@@ -36,7 +40,7 @@ ja:
       staff:
         name: 名前
         name_kana: 名前(ふりがな)
-        password: パスワード  
+        password: パスワード
   views:
     pagination:
       first: '最初'

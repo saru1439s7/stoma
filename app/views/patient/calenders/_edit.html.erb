@@ -37,7 +37,8 @@
             <div class="modal-footer">
               <%= f.submit "更新する", class: "btn btn-primary" %>
                <%=link_to "削除",patient_calender_path(calender.id), method: :delete,local: true,class:"btn btn-success"%>
-               <button style="${removeEvents}" data-event-id=${calender.id}>削除</button>
+                <%=link_to "非同期削除",patient_calender_path(calender.id), method: :delete,remote: true,class:"btn btn-success"%>
+               <!--<button style="${removeEvents}" data-event-id=${calender.id}>削除</button>-->
             </div>
           <% end %>
 

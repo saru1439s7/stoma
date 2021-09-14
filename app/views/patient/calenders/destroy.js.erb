@@ -5,34 +5,9 @@
 <!--$('#inputEditForm').html('< %= escape_javascript(render("events/edit", events: @events )) %>');-->
 <!--// フルカレンダー を一度消しもう一度表示-->
 <!--$('#calendar').fullCalendar('refetchEvents')-->
-
-
-
-
-
-<!--$("#edit_calender").html('< %= j(render("patient/calenders/edit",calenders: @calenders)) %>');-->
-<!--$("#edit_calender").html('< %= escape_javascript(render("patient/calenders/edit",calenders: @calenders)) %>');-->
-<!--$('#edit_calender').html('');-->
-$("#edit_test").html('<%= escape_javascript(render("patient/calenders/index")) %>');
-<!--$("#edit_calender").html('< %= escape_javascript(render("patient/calenders/edit",calenders: @calenders)) %>');-->
+$('.modal').modal('hide');
 $('.modal-backdrop').remove();
-<!--$('#calendar_test').fullCalendar（'removeEvent'）-->
-$('#calendar_test').fullCalendar('removeEvents', $(event).data('id'));
-<!--$('#calendar_test').html('');-->
 
-<!--$('#edit_calender').fullCalendar（'removeEventSource',event.id）-->
-<!--$('#calendar_test').fullCalendar（'removeEventSource',event.id）-->
-<!--//モーダルの背景が消える-->
-<!--$('.modal-backdrop').remove();-->
-<!--フルカレンダー を一度消しもう一度表示-->
-<!--$('#calendar_test').fullCalendar('refetchEvents')-->
-
-<!--$('#edit_calender').html('< %=escape_javascript(render("patient/calenders/edit",calenders: @calenders))%>');-->
-<!--(ev._id == calEvent._id);-->
-<!--$('#calendar_test').fullCalendar（ 'removeEvents' [、idOrFilter ]）-->
-<!--$('#calendar_test').fullCalendar（ 'removeEventSource'、source）-->
-
-<!--フォームを空にする-->
-<!--$('input[type="text"]').val('');-->
-<!--モーダルを消す-->
+$('#calendar_test').fullCalendar("refetchEvents")
+//refetchEventsはfullcalendarのdata取得
 
