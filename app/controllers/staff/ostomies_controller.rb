@@ -1,9 +1,9 @@
 class Staff::OstomiesController < ApplicationController
    #医療スタッフが
    #患者さんが書いた記録を見てコメントする
-
+ before_action :authenticate_staff!
   def index #患者さんごとのindex
-   @ostomies = Ostomy.all
+   @ostomies = Ostomy.all.page(params[:page]).per(7).reverse_order
    @patient = Patient.find(patient.id)
   end
 

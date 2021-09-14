@@ -1,5 +1,5 @@
 <div class="container">
- <h3>患者一覧</h3>
+ <h3 class="mt-md-4 mb-md-2">患者一覧</h3><%= paginate @patients %>
   <div class='row'>
    <div class='col-8'>
      　<table class="table">
@@ -12,7 +12,7 @@
        </tr>
        <%@patients.each do |patient|%>
        <tr>
-         <td><%= link_to patient.name,staff_patients_path %></td>
+         <td><%= link_to patient.name,staff_patients_path,class: "btn btn-success" %></td>
          <td><%= link_to "患者さんのストーマ記録を見る",staff_ostomy_path(patient.id),class: "btn btn-success" %></td>
          <td><%= link_to "記録をかく",new_staff_patient_record_path(patient.id),class: "btn btn-success"  %></td>
          <td><%= link_to "記録を見る",staff_patient_record_path(patient,patient.id),class: "btn btn-success"  %></td>

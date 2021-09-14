@@ -16,9 +16,34 @@
  */
  @import "bootstrap";
 
-
-
 header{
  background-color: #FFD159;
 }
- $brand-primary: #e87070 !default;
+
+ div{
+ .error_explanation {
+ background-color: #367002;
+ color: #367002;
+ }
+ }
+ .devise-error-messages {
+  color: #367002;
+}
+ .messages {
+  color: #367002;
+}
+
+
+//kaminariページングの色つけ
+.pagination {
+  justify-content: center;
+  color: green;
+}
+.page-link {
+  color: green;
+}
+.page-item.active .page-link {
+background-color: green;
+border-color: green;
+}
+

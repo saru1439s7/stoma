@@ -1,9 +1,9 @@
-<div class="container">
-  <h4>ストマの記録をかく</h4>
-    <div class="row"> <% if @ostomy.errors.any? %><% end %>
-        <div class ="col-8">
+<div class = "container">
+  <h4 class = "mt-md-4 mb-md-2">ストマの記録をかく</h4>
+    <div class = "row"> <%= render 'layouts/errors', obj: @ostomy%>
+        <div class = "col-8">
           <%= form_with model: @ostomy, url: patient_ostomies_path,local: true do |f| %>
-            <table class ="table">
+            <table class = "table">
               <tr>
                   <th>ストーマのいろ</th>
                   <td>

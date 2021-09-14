@@ -18,6 +18,6 @@ $('input[type="text"]').val('');
 <!--モーダルを消す-->
 $('#new_calender').modal('hide');
 <!--作成した予定を差し替える-->
-$('#edit_calender').html('<%= escape_javascript(render("patient/calenders/edit",  calenders: @calenders)) %>');
+$('#edit_calendar').html('<%= escape_javascript(render("patient/calenders/edit",  calenders: @calenders)) %>');
 <!--フルカレンダー を一度消しもう一度表示-->
 $('#calendar_test').fullCalendar('refetchEvents')

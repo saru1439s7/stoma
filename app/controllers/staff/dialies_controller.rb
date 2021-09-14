@@ -1,7 +1,8 @@
 class Staff::DialiesController < ApplicationController
   #医療スタッフが患者さんが書いた記録をみれてコメントする
+  before_action :authenticate_staff!
   def index
-    @dialies = Dialy.all
+    @dialies = Dialy.all.page(params[:page]).per(7).reverse_order
   end
   def show
     @dialy = Dialy.find(params[:id])

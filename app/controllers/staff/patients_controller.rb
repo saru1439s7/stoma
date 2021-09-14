@@ -1,8 +1,8 @@
 class Staff::PatientsController < ApplicationController
   #医療staffの患者一覧
-  #before_action :authenticate_patient!
+  before_action :authenticate_staff!
   def index
-   @patients = Patient.all
+   @patients = Patient.all.page(params[:page]).per(7).reverse_order
   end
 
   def show

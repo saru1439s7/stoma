@@ -1,5 +1,5 @@
 class Staff::CommentsController < ApplicationController
-
+ before_action :authenticate_staff!
   def create
     @ostomy = Ostomy.find(params[:ostomy_id])
     @comment = Comment.new(comment_params)

@@ -1,5 +1,7 @@
 class Staff::RecordsController < ApplicationController
   #医療stffのストマ記録
+  before_action :authenticate_staff!
+  
   def new
     @record = Record.new
     @patient = Patient.find(params[:patient_id])
@@ -45,7 +47,7 @@ class Staff::RecordsController < ApplicationController
   end
 
   def index
-    @records = Records.all
+    @records = Records.all.page(params[:page]).per(7).reverse_order
   end
 
 private

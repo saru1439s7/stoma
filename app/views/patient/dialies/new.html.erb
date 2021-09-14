@@ -1,5 +1,6 @@
 <div class="container">
-    <h4>記録をかく</h4>
+    <h4 class="mt-md-4 mb-md-1	">記録をかく</h4>
+     <%= render 'layouts/errors', obj: @dialy%>
     <div class="row   p-lg-4">
      <% if  @dialy.errors.any? %><% end %>
       <div class ="col-10">

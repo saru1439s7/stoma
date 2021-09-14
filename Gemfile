@@ -70,6 +70,7 @@ gem 'jquery-rails'
 gem 'rubocop-airbnb'
 gem 'kaminari','~> 1.2.1'
 gem 'dotenv-rails'
+gem 'rails-i18n'
 #gem 'better_errors'
 
 #カレンダー

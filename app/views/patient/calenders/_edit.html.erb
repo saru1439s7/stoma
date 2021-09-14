@@ -7,7 +7,7 @@
         <h3>カレンダー編集</h3>
       </div>
       <div class = "modal-body">
-        <%= form_with(model: calender,url: patient_calender_path(calender), method: :put,remote: true) do |f| %>
+        <%= form_with(model: calender,url: patient_calender_path(calender), method: :patch,local: true, data: {"turbolinks" => false} ) do |f| %>
             <div class="form-inputs">
               <div class="form-group">
                 <%= f.label :title, "予定", class: "form-control-label"%>
@@ -36,8 +36,11 @@
             </div>
             <div class="modal-footer">
               <%= f.submit "更新する", class: "btn btn-primary" %>
+               <%=link_to "削除",patient_calender_path(calender.id), method: :delete,local: true,class:"btn btn-success"%>
+               <button style="${removeEvents}" data-event-id=${calender.id}>削除</button>
             </div>
           <% end %>
+
       </div>
     </div>
   </div>

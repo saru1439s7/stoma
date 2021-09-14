@@ -1,4 +1,55 @@
 ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "は既に使用されています。"
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+            password:
+              taken: "は既に使用されています。"
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+              confirmation: "が内容とあっていません。"
+              Password confirmation: "確認用パスワード"
+      messages:
+        errors.messages.not_saved: "件保存されていません"
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      ostomy:
+        color: ストーマの色
+        edema: むくみ
+        skin: 皮膚の状態
+      patient:
+        name: 名前
+        name_kana: 名前(ふりがな)
+        password: パスワード
+      staff:
+        name: 名前
+        name_kana: 名前(ふりがな)
+        password: パスワード  
+  views:
+    pagination:
+      first: '最初'
+      last: '最後'
+      previous: 'まえ'
+      next: 'つぎ'
+      truncate: '〜'
+  devise:
+    shared:
+      minimin_password_length: "（%{count}字以上）"
+
+
+
   date:
     formats:
       default: "%Y/%m/%d"
@@ -15,7 +66,6 @@ ja:
       - :year
       - :month
       - :day
-
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"

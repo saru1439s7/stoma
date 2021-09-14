@@ -1,5 +1,5 @@
 class Patient::OstomiesController < ApplicationController
-
+ before_action :authenticate_patient!
   def new
      @ostomy = Ostomy.new
   end
@@ -9,7 +9,7 @@ class Patient::OstomiesController < ApplicationController
   end
 
   def index
-    @ostomies= Ostomy.all
+   @ostomies= Ostomy.all.page(params[:page]).per(7).reverse_order
   end
 
   def edit

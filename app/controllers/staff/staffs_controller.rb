@@ -1,5 +1,5 @@
 class Staff::StaffsController < ApplicationController
-  
+  before_action :authenticate_staff!
   def show
    @staff = current_staff
   end

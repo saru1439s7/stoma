@@ -42,18 +42,30 @@ $(function () {
     events: '/patient/calenders.json',
     color: 'yellow',
     textColor: 'black',
+    background_color: 'green',
 
     select: function(startDate, endDate) {
       $('#new_calender').modal('show');
       $(".input-start").val(moment(startDate).format("YYYY-MM-DD HH:mm"));
       $(".input-end").val(moment(endDate).format("YYYY-MM-DD HH:mm"));
     },
+
+    dayClick : function ( date , jsEvent , view ) {
+      $('#new_calender').modal('show');
+    },
+
     eventClick: function(event, jsEvent, view) {
       jsEvent.preventDefault();
       $(`#edit_calender${event.id}`).modal('show');
-    },
+      //イベント（予定）の削除  idを指定して削除。
+      $(`#edit_calendar`).fullCalendar("removeEvents");
+      },
 
-});
+
+     eventMouseover : function(event, jsEvent , view) {
+      jsEvent.preventDefault();
+    }
+ });
 });
 
     // eventClick: function(event) {

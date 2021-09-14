@@ -1,7 +1,7 @@
 class Patient::DialiesController < ApplicationController
-
+ before_action :authenticate_patient!
   def index
-    @dialies = Dialy.all
+    @dialies = Dialy.all.page(params[:page]).per(7).reverse_order
   end
 
   def new

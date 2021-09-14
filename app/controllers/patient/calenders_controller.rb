@@ -8,14 +8,16 @@ class Patient::CalendersController < ApplicationController
   def create
     @calender = Calender.new(calender_params)
     @calender.patient_id = current_patient.id
-    @calender.save
+    @calender.save!
     @calenders= Calender.all
+    redirect_to patient_calenders_path
   end
 
   def update
     @calender = Calender.find(params[:id])
     @calenders = Calender.all
     @calender.update(calender_params)
+    redirect_to patient_calenders_path
   end
 
   def edit
@@ -23,9 +25,9 @@ class Patient::CalendersController < ApplicationController
   end
 
   def destroy
-    @clender = Clender.find(params[:id])
+    @calender = Calender.find(params[:id])
     @calender.destroy
-    redirect_to patient_calenders_path,notice:"予定を削除しました"
+    redirect_to patient_calenders_path
   end
 
    def show

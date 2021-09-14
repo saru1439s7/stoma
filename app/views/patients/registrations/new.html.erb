@@ -1,32 +1,43 @@
-<h2>新規登録</h2>
-<%= form_with model: @patient, url: patient_registration_path, id: 'new_patient', class: 'new_patient', local: true do |f| %>
-  <%= render "patients/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+<div class= "container">
+  <div class='row'>
+    <div class = "col-12 p-md-2">
+    <h2>新規登録</h2>
+    </div>
+     <div class = "col-12 p-md-2">
+    <%= form_with model: @patient, url: patient_registration_path, id: 'new_patient', class: 'new_patient', local: true do |f| %>
+      <%= render "patients/shared/error_messages", resource: resource %>
+      <h3 class="field">
+        <%= f.label :名前 %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </h3>
+      <h3 class="field">
+        <%= f.label :名前かな %><br />
+        <%= f.text_field :name_kana, autofocus: true %>
+      </h3>
+      <h3 class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </h3>
+      <h3 class="field">
+        <%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </h3>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <h3 class="field">
+        <%= f.label :パスワード確認 %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </h3>
 
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード確認 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "登録" ,class:"btn btn-success"%>
-  </div>
-<% end %>
-
-<%= render "patients/shared/links" %>
+      <div class="actions">
+        <%= f.submit "登録" ,class:"btn btn-success"%>
+      </div>
+    <% end %>
+     <div class="actions">
+    <%= render "patients/shared/links" %>
+    </div>
+    </div>
+   </div>
+</div>

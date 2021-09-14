@@ -1,4 +1,9 @@
-<h2>医療スタッフ登録</h2>
+<div class= "container">
+  <div class='row'>
+    <div class = "col-12 p-md-2">
+    <h2>医療スタッフ登録</h2>
+     </div>
+     <div class = "col-12 p-md-2">
 <%= form_with model: @staff, url: staff_registration_path, id: 'new_staff', class: 'new_staff', local: true do |f| %>
   <%= render "staffs/shared/error_messages", resource: resource %>
   <div class="field">
@@ -14,7 +19,7 @@
   <div class="field">
     <%= f.label :パスワード %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %>文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -28,5 +33,9 @@
     <%= f.submit "登録",class:"btn btn-success" %>
   </div>
 <% end %>
-
+<div class="actions">
 <%= render "staffs/shared/links" %>
+</div>
+    </div>
+   </div>
+</div>

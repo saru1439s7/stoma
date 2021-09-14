@@ -1,5 +1,6 @@
 <div class='container'>
   <h4>記録を編集</h4>
+  <%= render 'layouts/errors', obj: @dialy%>
   <div class='row'>
     <div class ="col-8">
     <%= form_with model: @dialy, url: patient_dialy_path,method: :patch,local: true do |f|%>
@@ -24,22 +25,22 @@
           <th>便のいろ</th>
           <td>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-outline-success active">
+              <label class="btn btn-outline-success ">
                <%= f.label :brown , 'ちゃいろ' %><%= f.radio_button :color, "brown" %>
               </label>
-              <label class="btn btn-outline-success active">
+              <label class="btn btn-outline-success">
                <%= f.label :black , 'くろ' %><%= f.radio_button :color, "black" %>
               </label>
-              <label class="btn btn-outline-success active">
+              <label class="btn btn-outline-success">
                <%= f.label :light_brown, 'うすちゃいろ' %><%= f.radio_button :color,"light_brown"%>
               </label>
-              <label class="btn btn-outline-success active">
+              <label class="btn btn-outline-success">
                <%= f.label :orange, 'オレンジ' %><%= f.radio_button :color,"orange"%>
               </label>
-              <label class="btn btn-outline-success active"><%= f.label :yellow, 'きいろ' %><%= f.radio_button :color,"yellow"%>
+              <label class="btn btn-outline-success"><%= f.label :yellow, 'きいろ' %><%= f.radio_button :color,"yellow"%>
                <%= f.label :red ,'あか' %><%= f.radio_button :color,"red"%>
               </label>
-              <label class="btn btn-outline-success active">
+              <label class="btn btn-outline-success">
                <%= f.label :other, 'そのほか' %><%= f.radio_button :color, "other" %>
               </label>
             </div>

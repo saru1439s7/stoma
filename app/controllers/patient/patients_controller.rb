@@ -1,5 +1,5 @@
 class Patient::PatientsController < ApplicationController
-   # before_action :authenticate_patient!
+   before_action :authenticate_patient!,except: :top
   def top
   end
 
