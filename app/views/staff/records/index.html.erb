@@ -11,9 +11,9 @@
   </tr>
   <tr>
     <td><%= record.created_at.strftime('%Y/%m/%d')%><</td>
-    <td></td>
-    <td></td>
-    <td><%=link_to "詳細を見る",staff_patient_record_path(patient.id,record.id),class:"btn btn-success"%></td>
+    <td><%= record.created_at.strftime('%Y/%m/%d')%></td>
+    <td></td>                                      <!--recordモデル内にpatient　があるeach文ではpないから -->
+    <td><%=link_to "詳細を見る",staff_patient_record_path(record.patient_id,record.id),class:"btn btn-success"%></td>
   </tr>
 </table>
 <%end%>

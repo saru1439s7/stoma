@@ -10,6 +10,7 @@ class Staff::OstomiesController < ApplicationController
   def show #showページでコメントを作る
     @comment = Comment.new
     @ostomy = Ostomy.find(params[:id])
+    #@ostomy1 = Ostomy.find(params[:ostomy_id])
   end
 
   def create

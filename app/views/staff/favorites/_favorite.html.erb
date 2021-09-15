@@ -1,0 +1,9 @@
+<% if ostomy.favorited_by?(current_staff) %>
+  <%= link_to staff_ostomy_favorites_path(ostomy), method: :delete,remote: true do%>
+   <%= ostomy.favorites.count%>❤︎よいいね
+  <%end%>
+<% else %>
+  <%= link_to staff_ostomy_favorites_path(ostomy), method: :post,remote: true do %>
+   <%= ostomy.favorites.count%>♡︎いいね
+  <%end%>
+<% end %>

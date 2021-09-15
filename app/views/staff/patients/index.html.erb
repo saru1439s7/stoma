@@ -14,8 +14,12 @@
        <tr>
          <td><%= link_to patient.name,staff_patients_path,class: "btn btn-success" %></td>
          <td><%= link_to "患者さんのストーマ記録を見る",staff_ostomy_path(patient.id),class: "btn btn-success" %></td>
+
+         <td><%= link_to "患者さんのストーマ記録一覧を見る",staff_ostomies_path(patient.id),class: "btn btn-success" %></td>
+
          <td><%= link_to "記録をかく",new_staff_patient_record_path(patient.id),class: "btn btn-success"  %></td>
-         <td><%= link_to "記録を見る",staff_patient_record_path(patient,patient.id),class: "btn btn-success"  %></td>
+         <td><%= link_to "記録を見る",staff_patient_records_path(patient.id),class: "btn btn-success"  %></td>
+         <!--<td>< %= link_to "記録一覧を見る",staff_patient_record_path(patient.id,@record_id),class: "btn btn-success"  %></td>-->
        </tr>
        <%end%>
      </table>

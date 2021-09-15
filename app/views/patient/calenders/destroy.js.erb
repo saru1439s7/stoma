@@ -1,13 +1,8 @@
-<!--$('input[type="text"]').val('');-->
-<!--//モーダルを消す-->
-<!--$('#inputScheduleForm').modal('hide');-->
-<!--//作成した予定を差し替える-->
-<!--$('#inputEditForm').html('< %= escape_javascript(render("events/edit", events: @events )) %>');-->
-<!--// フルカレンダー を一度消しもう一度表示-->
-<!--$('#calendar').fullCalendar('refetchEvents')-->
+<!--最後に処理が終了したら、モーダルを閉じる-->
 $('.modal').modal('hide');
+<!--//モーダルの背景が消える-->
 $('.modal-backdrop').remove();
-
+<!--refetchEventsはfullcalendarのdata取得-->
 $('#calendar_test').fullCalendar("refetchEvents")
-//refetchEventsはfullcalendarのdata取得
+
 

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resources :dialies,:only => [:index,:show]
     resources :ostomies,:only => [:index,:show] do
      resources :comments, only: [:create, :destroy]
-     resource :favorite, only: [:create, :destroy]
+     resource :favorites, only: [:create, :destroy]
     end
 
      #患者ごとに記録するためネストさせる
@@ -36,4 +36,14 @@ Rails.application.routes.draw do
        resources :records,:except => [:destroy]
     end
   end
+  
 end
+    #ネストさせないと関連づかない???
+    #  resources :patients,:except => [:destroy,:new,:create] do
+    #   resources :records,:except => [:destroy]
+    #   resources :dialies,:only => [:index,:show]
+    # 　 resources :ostomies,:only => [:index,:show] do
+    #  　  resources :comments, only: [:create, :destroy]
+    #      resource :favorite, only: [:create, :destroy]
+    #   end
+    #  end
