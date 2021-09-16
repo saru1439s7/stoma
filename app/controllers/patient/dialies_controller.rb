@@ -2,7 +2,7 @@ class Patient::DialiesController < ApplicationController
  before_action :authenticate_patient!
   def index
     @dialies = current_patient.dialies.all.page(params[:page]).per(7).reverse_order
-   　#　Dialy.where( parient.id: current_patient.id)#全体の中から絞って持って    　　　　　
+     #  Dialy.where( parient.id: current_patient.id)#全体の中から絞って持って
   end
 
   def new

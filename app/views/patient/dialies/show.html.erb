@@ -37,11 +37,11 @@
         </tr>
         <tr>
           <th>写真</th>
-          <td><!--< % if @dialy.image.attached? %>
-                  < %= image_tag @dialy.image %>
-                  < % else %>
-                  < %= image_tag 'no_image.jpg' %>
-                  < % end %>-->
+          <td><% if @dialy.image.attached? %>
+                  <%= image_tag @dialy.image %>
+                  <% else %>
+                  <%= image_tag 'no_image.jpeg' %>
+                  <% end %>
          </td>
         </tr>
         <tr>

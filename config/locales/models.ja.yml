@@ -18,29 +18,6 @@ ja:
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
               Password confirmation: "確認用パスワード"
-  errors:
-    messages:
-      not_saved:
-        one: "エラーが発生したため %{resource} は保存されませんでした。"
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
-      errors.messages.not_saved: "件保存されていません"
-      record_invalid: 'バリデーションに失敗しました: %{errors}'
-      restrict_dependent_destroy:
-        has_one: "%{record}が存在しているので削除できません"
-        has_many: "%{record}が存在しているので削除できません"
-    attributes:
-      ostomy:
-        color: ストーマの色
-        edema: むくみ
-        skin: 皮膚の状態
-      patient:
-        name: 名前
-        name_kana: 名前(ふりがな)
-        password: パスワード
-      staff:
-        name: 名前
-        name_kana: 名前(ふりがな)
-        password: パスワード
   views:
     pagination:
       first: '最初'
@@ -51,21 +28,15 @@ ja:
   devise:
     shared:
       minimin_password_length: "（%{count}字以上）"
-
-
-
   date:
     formats:
       default: "%Y/%m/%d"
       short: "%m/%d"
       long: "%Y年%m月%d日(%a)"
-
     day_names: [日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日]
     abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
-
     month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
     abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
-
     order:
       - :year
       - :month

@@ -4,16 +4,12 @@ class Staff::FavoritesController < ApplicationController
   def create
     @ostomy = Ostomy.find(params[:ostomy_id])
     favorite = @ostomy.favorites.new(staff_id: current_staff.id)
-    #favorite = current_staff.favorites.new(staff_id: current_staff.id)
-    #favorite.ostomy_id=favorite.id
     favorite.save
   end
 
   def destroy
     @ostomy = Ostomy.find(params[:ostomy_id])
     favorite = @ostomy.favorites.find_by(staff_id: current_staff.id)
-    pp favorite
-    #favorite = current_staff.favorites.find_by(staff_id: current_staff.id)
     favorite.destroy
   end
 

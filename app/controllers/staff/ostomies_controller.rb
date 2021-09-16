@@ -1,15 +1,17 @@
 class Staff::OstomiesController < ApplicationController
    #医療スタッフが
    #患者さんが書いた記録を見てコメントする
- before_action :authenticate_staff!
+  before_action :authenticate_staff!
+
   def index #患者さんごとのindex
-   @ostomies = Ostomy.all.page(params[:page]).per(7).reverse_order
-   @patient = Patient.find(patient.id)
+    #@ostomies = Ostomy.all.page(params[:page]).per(7).reverse_order
+    #@patient = Patient.find(patient.id)
+    @ostomies = Ostomy.where(patient_id: params[:patient_id]).page(params[:page]).per(7).reverse_order
   end
 
   def show #showページでコメントを作る
     @comment = Comment.new
-    @ostomy = Ostomy.find(params[:id])
+    @ostomy = Ostomy.find(params[:ostomy_id])
     #@ostomy1 = Ostomy.find(params[:ostomy_id])
   end
 
@@ -29,6 +31,7 @@ class Staff::OstomiesController < ApplicationController
 
   private
   def ostomy_params
-      params.require(:ostomy).permit(:color,:edema,:skin,:h_size,:w_size,:comment,:image)
+   params.require(:ostomy).permit(:color,:edema,:skin,:h_size,:w_size,:comment,:image)
   end
+
 end

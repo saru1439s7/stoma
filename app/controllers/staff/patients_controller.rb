@@ -6,18 +6,18 @@ class Staff::PatientsController < ApplicationController
   end
 
   def show
-    @patient = Patient.find(patient.id)
+    @patient = Patient.find(params[:id])
     @record = Record.new
   end
 
   def edit
-    @patient = Patient.find(patient.id)
+    @patient = Patient.find(params[:id])
   end
 
   def update
-   @patient = Patient.find(patient.id)
+   @patient = Patient.find(params[:id])
    if @patient.update(patient_params)
-     redirect_to patient_path(current_patient)
+     redirect_to staff_patient_path(@patient.id)
    else
      render :edit
    end

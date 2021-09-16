@@ -1,13 +1,12 @@
-<div "container">
+<div class ="container">
   <div class='row'>
-    <h4>マイページ</h4>
-    <div>
-      <%=link_to "編集する",edit_patient_path%>
-    </div>
-    <div>
-      <%=link_to "ストーマの記録",edit_patient_patient_path %>
-    </div>
-    <table>
+      <div class='col-8'>
+    <h4 class = "mt-md-4 mb-md-2">マイページ</h4>
+    <table class ="table">
+       <tr>
+        <th></th>
+        <td><%=link_to "編集する",edit_patient_patient_path(current_patient) ,class: "btn btn-success"%></td>
+      </tr>
       <tr>
         <th>名前</th>
         <td><%= @patient.name %></td>
@@ -21,3 +20,6 @@
         <td><%= @patient.email %></td>
       </tr>
     </table>
+    </div>
+    </div>
+    </div>

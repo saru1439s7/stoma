@@ -24,9 +24,11 @@ Rails.application.routes.draw do
   end
   #医療スタッフ   #医療スタッフだけがいいね、コメントつけられる
   namespace :staff do
+    get '/ostomies/index/:patient_id',to: 'ostomies#index', as: 'ostomy_index'
+    get '/ostomies/show/:ostomy_id/:patient_id',to: 'ostomies#show', as: 'ostomy_show'
     resources :staffs,:except => [:destroy,:new]
     resources :dialies,:only => [:index,:show]
-    resources :ostomies,:only => [:index,:show] do
+    resources :ostomies,:only => [:show] do #index消すの忘れ
      resources :comments, only: [:create, :destroy]
      resource :favorites, only: [:create, :destroy]
     end
@@ -36,14 +38,5 @@ Rails.application.routes.draw do
        resources :records,:except => [:destroy]
     end
   end
-  
+
 end
-    #ネストさせないと関連づかない???
-    #  resources :patients,:except => [:destroy,:new,:create] do
-    #   resources :records,:except => [:destroy]
-    #   resources :dialies,:only => [:index,:show]
-    # 　 resources :ostomies,:only => [:index,:show] do
-    #  　  resources :comments, only: [:create, :destroy]
-    #      resource :favorite, only: [:create, :destroy]
-    #   end
-    #  end

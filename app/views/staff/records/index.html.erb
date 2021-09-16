@@ -1,22 +1,30 @@
-<div "container">
- <div class='row'><%= paginate @records %>
+<div class="container">
+  <div class='row'><%= paginate @records %>
    <div class='col-6'>
-<%@records.each do |record|%>
-<table>
-  <tr>
-    <th>記録作成日</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr>
-    <td><%= record.created_at.strftime('%Y/%m/%d')%><</td>
-    <td><%= record.created_at.strftime('%Y/%m/%d')%></td>
-    <td></td>                                      <!--recordモデル内にpatient　があるeach文ではpないから -->
-    <td><%=link_to "詳細を見る",staff_patient_record_path(record.patient_id,record.id),class:"btn btn-success"%></td>
-  </tr>
-</table>
-<%end%>
-</div>
-</div>
+     <!--< %=@records.record.patient.name%>さんの-->
+     <h3>ストマの記録一覧</h3>
+    <table class= "table">
+      <tr>
+        <th>記録作成日</th>
+        <th>ABC合計</th>
+        <th>A/B/C/D</th>
+        <th></th>
+      </tr>
+      <%@records.each do |record|%>
+      <tr>
+        <td><%= record.created_at.strftime('%Y/%m/%d')%></td>
+        <td><%= record.point %></td>
+        <td>
+            <%= record.adjacent_before_type_cast %>/
+            <%= record.barrier_before_type_cast %>/
+            <%= record.circumscribing_before_type_cast %>/
+            <%= record.discolor_before_type_cast %>
+        </td>                                      <!--recordモデル内にpatient   があるeach文ではpないから -->
+        <td><%=link_to "詳細を見る",staff_patient_record_path(record.patient_id,record.id),class:"btn btn-success"%></td>
+
+      </tr>
+      <%end%>
+    </table>
+   </div>
+  </div>
 </div>

@@ -14,7 +14,7 @@ class Patient::PatientsController < ApplicationController
   def update
     @patient = current_patient
    if @patient.update(patient_params)
-    redirect_to patient_path(current_patient) , notice: "更新しました"
+    redirect_to  patient_patient_path(current_patient)
    else
     render 'edit'
    end
@@ -22,6 +22,6 @@ class Patient::PatientsController < ApplicationController
 
  private
  def patient_params
-   require(:patient).permit.(:name,:name_kana,:email,:image_id,:password)
+   params.require(:patient).permit(:name,:name_kana,:email,:image_id,:password)
  end
 end

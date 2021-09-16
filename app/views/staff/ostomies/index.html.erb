@@ -1,9 +1,7 @@
-<div "container">
- <div  class="col-lg-8 p-md-4">
-  <h4>ストーマ記録一覧</h4><%= paginate @ostomies %>
- </div>
-   <div class='row'>
-      <div  class="col-8 justify-content-md-around" style="background-color: ;">
+<div class= "container">
+    <h4 class="mt-md-4 mb-md-2">ストーマ記録 一覧</h4><%= paginate @ostomies %>
+  <div class='row'>
+   <div  class="col-8 ">
         <table class="table">
            <tr>
                <th>記録した日付</th>
@@ -17,12 +15,12 @@
               <td><%= ostomy.color_i18n %></td>
               <td><%= ostomy.edema_i18n %></td>
               <td>
-                <%=link_to "詳細を見る",patient_ostomy_path(ostomy),class: "btn btn-success btn-lg"%>
+                <!--< %=link_to "詳細を見る",patient_ostomy_path(ostomy.patient_id,ostomy.id),class: "btn btn-success btn-lg"%>-->
+                <%=link_to "詳細を見る",staff_ostomy_show_path(ostomy,ostomy.patient_id),class: "btn btn-success btn-lg"%>
               </td>
              </tr>
              <%end%>
        </table>
-      </div>
    </div>
  </div>
 </div>

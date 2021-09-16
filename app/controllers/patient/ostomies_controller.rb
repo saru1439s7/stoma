@@ -9,7 +9,8 @@ class Patient::OstomiesController < ApplicationController
   end
 
   def index
-   @ostomies= Ostomy.all.page(params[:page]).per(7).reverse_order
+   #@ostomies= Ostomy.all.page(params[:page]).per(7).reverse_order
+    @ostomies = current_patient.ostomies.all.page(params[:page]).per(7).reverse_order
   end
 
   def edit

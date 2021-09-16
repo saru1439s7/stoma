@@ -20,7 +20,7 @@
           <th>D:ABCの合わせた部位の色調の変化</th>
           <td><%= @record.discolor_i18n %></td>
         </tr>
-      　<tr>
+          <tr>
           <th>A+B+C=合計点</th>
           <td><%= @record.point %></td>
         </tr>
@@ -46,11 +46,13 @@
         </tr>
         <tr>
           <th>写真</th>
-          <td><!--< % if@record.image.attached? %>
-                  < %= image_tag @record.image %>
-                  < % else %>
-                  < %= image_tag 'no_image.jpg' %>
-                  < % end %>--></td>
+          <td>
+              <% if@record.image.attached? %>
+              <%= image_tag @record.image %>
+              <% else %>
+              <%= image_tag 'no_image.jpg' %>
+              <% end %>
+          </td>
         </tr>
      </table>
    <%= link_to '編集する',edit_staff_patient_record_path, class: "btn btn-success btn-lg" %>
