@@ -4,8 +4,10 @@ class Staff < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  validates :name, presence: true
+  validates :email, presence: true
+  
   has_one_attached :image
   has_many :comments
   has_many :favorites
-  has_many :so_goods
 end

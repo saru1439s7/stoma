@@ -20,6 +20,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
+#spec/support/配下のファイルを読み込むためにコメントアウトはずす
  Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
@@ -63,9 +64,31 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   
   
-# spec/support/ など、RSpec.cinfigureが呼べるファイルなら他でもいい
-RSpec.configure do |config|
-  config.include FactoryBot::Syntax::Methods
-end
+  #DatabaseCleanerの設定
+   RSpec.configure do |config|
+    # FactoryBotの利用をON
+    config.include FactoryBot::Syntax::Methods
+  
+    # DatabaseCleanerの設定
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :truncation
+    end
+  
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+  
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
+  
+    config.before(:all) do
+      DatabaseCleaner.start
+    end
+  
+    config.after(:all) do
+      DatabaseCleaner.clean
+    end
+  end
 
 end

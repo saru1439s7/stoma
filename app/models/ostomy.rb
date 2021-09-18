@@ -4,7 +4,7 @@ class Ostomy < ApplicationRecord
   belongs_to :patient
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :so_good, dependent: :destroy
+  #has_many :so_good, dependent: :destroy
   validates :color, {presence: true}
   validates :edema, {presence: true}
   validates :skin, {presence: true}
