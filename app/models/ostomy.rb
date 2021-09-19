@@ -2,8 +2,8 @@ class Ostomy < ApplicationRecord
   #患者さんのストーマの記録
   has_one_attached :image
   belongs_to :patient
-  has_many :comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  has_many :comments
+  has_many :favorites
   #has_many :so_good, dependent: :destroy
   validates :color, {presence: true}
   validates :edema, {presence: true}

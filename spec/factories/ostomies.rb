@@ -1,9 +1,9 @@
 FactoryBot.define do
   #患者さんのストーマの記録
   factory :ostomy do
-    sequence(:color) { |n| "color#{n}" }
-    sequence(:edema) { |n| "edema#{n}" }
-    sequence(:skin) { |n| "skin#{n}" }
+     color { "pink" }
+     edema { "normal" }
+     skin { "same" }
     association :patient
 
     # https://qiita.com/mightysosuke/items/8fc12d43ae5e183a8c74

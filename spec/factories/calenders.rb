@@ -1,6 +1,5 @@
 FactoryBot.define do
- #医療staffがいいね
   factory :calender do
-　　association {:patient}
+    association :patient
   end
 end

@@ -1,7 +1,7 @@
 FactoryBot.define do
- #医療staffがかくストマ記録
+ #患者がかく記録
   factory :dialy do
-　　association {:patient}
+    association :patient
       #enumの設定
       # https://qiita.com/mightysosuke/items/8fc12d43ae5e183a8c74
       Dialy.colors.keys.each do |color|

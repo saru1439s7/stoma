@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Calender, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  #pending "add some examples to (or delete) #{__FILE__}"
   
     before do  #モデルのみの作成
       @patient = build(:patient)

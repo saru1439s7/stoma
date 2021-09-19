@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Staff, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+ # pending "add some examples to (or delete) #{__FILE__}"
 
-  before do  
+  before do
     @staff = build(:staff)
   end
 
  describe 'バリテーション' do
-    it 'name,email値が設定されていれば、OK' do
+    it 'name,email,password値が設定されていれば、OK' do
       expect(@staff.valid?).to eq(true)
     end
 
@@ -19,6 +19,10 @@ RSpec.describe Staff, type: :model do
 
     it 'emailが空はNG' do
       @staff.email = ''
+      expect(@staff.valid?).to eq(false)
+    end
+    it 'passwordが空はNG' do
+      @staff.password = ''
       expect(@staff.valid?).to eq(false)
     end
  end

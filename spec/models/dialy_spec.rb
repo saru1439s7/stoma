@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Dialy, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-  
-    before do  #モデルのみの作成　#belongs_toのときだけ
+  #pending "add some examples to (or delete) #{__FILE__}"
+
+    before do  #モデルのみの作成#belongs_toのときだけ
       @patient = build(:patient)
-      @dialies = build(:dialies,patient: @patient)
+      @dialy = build(:dialy,patient: @patient)
     end
 
     describe 'アソシエーションのテスト' do
