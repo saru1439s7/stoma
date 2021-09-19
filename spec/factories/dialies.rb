@@ -14,5 +14,9 @@ FactoryBot.define do
           status { feeling }
         end
       end
+
+      # after(:build) do |dialy|
+      #   dialy.attached = fixture_file_upload(Rails.root.join('spec/fixtures/images/no_image.jpeg', 'image/jpeg'))
+      # end
   end
 end

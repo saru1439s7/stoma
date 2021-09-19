@@ -90,5 +90,8 @@ RSpec.configure do |config|
       DatabaseCleaner.clean
     end
   end
-
+  
+  
+   config.include Devise::Test::IntegrationHelpers, type: :request
+   
 end

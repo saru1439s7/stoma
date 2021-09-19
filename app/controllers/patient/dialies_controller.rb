@@ -14,6 +14,7 @@ class Patient::DialiesController < ApplicationController
   end
 
   def create
+    # binding.irb
     @dialy = Dialy.new(dialy_params)
     @dialy.patient_id = current_patient.id
    if @dialy.save

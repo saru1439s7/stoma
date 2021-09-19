@@ -4,8 +4,7 @@ FactoryBot.define do
      color { "pink" }
      edema { "normal" }
      skin { "same" }
-    association :patient
-
+     association :patient
     # https://qiita.com/mightysosuke/items/8fc12d43ae5e183a8c74
     Ostomy.colors.keys.each do |color|
       trait :"#{color}" do
