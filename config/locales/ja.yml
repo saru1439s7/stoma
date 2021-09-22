@@ -1,12 +1,17 @@
 ja:
   activerecord:
-    errors:
-      models:
+    attributes:
+        ostomy:
+          color: ストーマの色
+          edema: むくみ
+          skin: ひふの状態
+        dialy:
+          color:
         user:
           attributes:
             email:
               taken: "は既に使用されています。"
-              blank: "が入力されていません。"
+              blank: "が入力されていません"
               too_short: "は%{count}文字以上に設定して下さい。"
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
@@ -28,19 +33,19 @@ ja:
       restrict_dependent_destroy:
         has_one: "%{record}が存在しているので削除できません"
         has_many: "%{record}が存在しているので削除できません"
-    attributes:
-      ostomy:
-        color: ストーマの色
-        edema: むくみ
-        skin: 皮膚の状態
-      patient:
-        name: 名前
-        name_kana: 名前(ふりがな)
-        password: パスワード
-      staff:
-        name: 名前
-        name_kana: 名前(ふりがな)
-        password: パスワード
+      attributes:
+        ostomy:
+          color: ストーマの色
+          edema: むくみ
+          skin: 皮膚の状態
+        patient:
+          name: 名前
+          name_kana: 名前(ふりがな)
+          password: パスワード
+        staff:
+          name: 名前
+          name_kana: 名前(ふりがな)
+          password: パスワード
   views:
     pagination:
       first: '最初'

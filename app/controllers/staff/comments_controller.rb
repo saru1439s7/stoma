@@ -7,11 +7,13 @@ class Staff::CommentsController < ApplicationController
     @comment.ostomy_id = @ostomy.id
     unless @comment.save  #ここでエラー
      render 'error'
+     pry
     end
   end
 
   def destroy
   end
+  
  private
    def comment_params
     params.require(:comment).permit(:comment)

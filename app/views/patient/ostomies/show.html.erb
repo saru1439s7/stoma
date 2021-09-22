@@ -34,11 +34,12 @@
         </tr>
         <tr>
           <th>写真</th>
-          <td><!--< % if@ostomy.image.attached? %>
-                  < %= image_tag @ostomy.image %>
-                  < % else %>
-                  < %= image_tag 'no_image.jpg' %>
-                  < % end %>-->
+          <td>
+            <% if@ostomy.image.attached? %>
+              <%= image_tag @ostomy.image %>
+              <% else %>
+              <%= image_tag 'no_image.jpg' %>
+              <% end %>
           </td>
         </tr>
         <tr>

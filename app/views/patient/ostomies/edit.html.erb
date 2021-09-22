@@ -1,5 +1,5 @@
 <div class="container">
- <h4>ストーマの記録を編集</h4>
+ <h4 class ="mt-md-4">ストーマの記録を編集</h4>
  <%= render 'layouts/errors', obj: @ostomy%>
   <div class="row">
     <div class ="col-8 p-lg-4">
@@ -9,19 +9,19 @@
             <th>ストーマのいろ</th>
             <td>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-outline-success">
+                <label class="btn btn-outline-success <%= @ostomy.color == 'pink' ? 'active' : '' %>">
               　 <%= f.label :pink, 'ピンク' %><%= f.radio_button :color,"pink"%>
               　</label>
-              　<label class="btn btn-outline-success">
+              　<label class="btn btn-outline-success <%= @ostomy.color == 'red'? 'active' : '' %>">
                  <%= f.label :red ,'あか' %><%= f.radio_button :color,"red"%>
                 </label>
-              　<label class="btn btn-outline-success">
+              　<label class="btn btn-outline-success <%= @ostomy.color == 'brown'? 'active' : '' %>">
                  <%= f.label :brown , 'ちゃいろ' %><%= f.radio_button :color, "brown" %>
                 </label>
-              　<label class="btn btn-outline-success">
+              　<label class="btn btn-outline-success <%= @ostomy.color == 'black'? 'active' : '' %>">
                  <%= f.label :black , 'くろ' %><%= f.radio_button :color, "black" %>
                 </label>
-              　<label class="btn btn-outline-success">
+              　<label class="btn btn-outline-success <%= @ostomy.color == 'black'? 'active' : '' %>">
                  <%= f.label :other, 'そのほか' %><%= f.radio_button :color, "other" %>
                 </label>
               </div>
@@ -31,10 +31,10 @@
             <th>むくみ</th>
             <td>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-outline-success ">
+                <label class="btn btn-outline-success <%= @ostomy.color == 'black'? 'active' : '' %>">
                 <%= f.radio_button :edema, "normal" %><%= f.label :normal, 'なし' %>
                 </label>
-              　<label class="btn btn-outline-success">
+              　<label class="btn btn-outline-success <%= @ostomy.color == 'black'? 'active' : '' %>">
                 <%= f.radio_button :edema, "edema" %><%= f.label :edema,'むくみあり'%>
                 </label>
               </div>
@@ -44,22 +44,22 @@
             <th>ひふの状態</th>
             <td>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-outline-success ">
+                <label class="btn btn-outline-success <%= @ostomy.color == 'black'? 'active' : '' %>">
                  <%= f.radio_button :skin,"same" %><%= f.label :same, '前回と同じ' %>
                 </label>
-              　<label class="btn btn-outline-success">
+              　<label class="btn btn-outline-success <%= @ostomy.color == 'red'? 'active' : '' %>">
                  <%= f.radio_button :skin,"red"%><%= f.label :red ,'あかい' %>
                 </label>
-              　<label class="btn btn-outline-success ">
+              　<label class="btn btn-outline-success <%= @ostomy.color == 'black'? 'active' : '' %>">
                  <%= f.label :blown , 'ちゃいろ' %><%= f.radio_button :skin,"brown"%>
                 </label>
-              　<label class="btn btn-outline-success">
+              　<label class="btn btn-outline-success <%= @ostomy.color == 'black'? 'active' : '' %>">
                  <%= f.label :black , 'くろ' %><%= f.radio_button :skin,"black" %>
                 </label>
-              　<label class="btn btn-outline-success">
+              　<label class="btn btn-outline-success <%= @ostomy.color == 'white'? 'active' : '' %>">
                  <%= f.label :white, 'しろ' %><%= f.radio_button :skin,"white"%>
                 </label>
-              　<label class="btn btn-outline-success ">
+              　<label class="btn btn-outline-success <%= @ostomy.color == 'other'? 'active' : '' %>">
                  <%= f.label :other, '水疱' %><%= f.radio_button :skin,"blister"%>
                 </label>
               </div>

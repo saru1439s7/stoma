@@ -68,6 +68,17 @@ $(function () {
  });
 });
 
+// ハンバーガメーメニュ
+
+$(function() {
+　$('.Toggle').click(function() {
+   $(this).toggleClass('active');
+  $('.menu').toggleClass('open');
+ });
+});
+
+
+
     // eventClick: function(event) {
     //     $('#edit_calender').modal('show');
     //     $(".input-start").val(moment(startDate).format("YYYY-MM-DD HH:mm"));

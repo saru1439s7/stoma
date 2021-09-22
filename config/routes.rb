@@ -12,8 +12,9 @@ Rails.application.routes.draw do
     sessions: 'patients/sessions',
     registrations: 'patients/registrations',
     passwords: 'patients/passwords'}
-
     root 'patient/patients#top'
+    root 'staff/staffs#top'
+
   # 患者さん
 
   namespace :patient do
@@ -26,12 +27,15 @@ Rails.application.routes.draw do
   namespace :staff do
     get '/ostomies/index/:patient_id',to: 'ostomies#index', as: 'ostomy_index'
     get '/ostomies/show/:ostomy_id/:patient_id',to: 'ostomies#show', as: 'ostomy_show'
-    resources :staffs,:except => [:destroy,:new]
-    resources :dialies,:only => [:index,:show]
-    resources :ostomies,:only => [:show] do #index消すの忘れ
+    resources :ostomies,:only => [:index] do
      resources :comments, only: [:create, :destroy]
      resource :favorites, only: [:create, :destroy]
     end
+
+
+    resources :staffs,:except => [:destroy,:new]
+    resources :dialies,:only => [:index,:show]
+
 
      #患者ごとに記録するためネストさせる
     resources :patients,:except => [:destroy,:new,:create] do

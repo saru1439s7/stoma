@@ -16,14 +16,19 @@
  */
  @import "bootstrap";
 
-header{
-  background-image: image-url('22112149.jpg');
- // width: 100%;
- // background-size: contain;
- // height: 150px;
- //background-color: #FFD159;
-}
-
+// // header{
+//   background-image: image-url('22112149.jpg');
+//   height: 85px;
+//   padding: 20px 15px;
+// // width: 100%;
+// // background-size: contain;
+// // height: 150px;
+// //background-color: #FFD159;
+//   display: flex;
+//   position: sticky;
+//   bottom: 0;
+// }
+//エラーメッセージ色つけ #################################################
  div{
  .error_explanation {
  background-color: #367002;
@@ -38,7 +43,7 @@ header{
 }
 
 
-//kaminariページングの色つけ
+//kaminariページングの色つけ #################################################################################
 .pagination {
   justify-content: center;
   color: green;
@@ -58,21 +63,24 @@ border-color: green;
 
 body {
   margin: 0;
-  font-family: "Hiragino Sans W3", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-family: 'Hiragino Maru Gothic Pro','Hiragino Maru Gothic ProN',"ヒラギノ角ゴ ProN W3","Hiragino Sans W3", "Hiragino Kaku Gothic ProN",  "MS PGothic", sans-serif;
+  font-color: #2B0F04;
   //background-color: #f0f8ff;
 }
 
  header {
    height: 85px;
-//   width: 100%;
+   background-image: image-url('22112149.jpg');
    padding: 20px 15px;
-//   background-color: rgba(34, 49, 52, 0.9);
 //   position: fixed;
 //   top: 0;
-//   z-index: 10;
+   z-index: 10;
    display: flex;
+   position: sticky;
+   top: 0;
+   bottom: 0;
 }
-
+// ##################
 .logo {
   font-size: 25px;
 }
@@ -101,76 +109,107 @@ a {
   display: none;
 }
 
+// /**********************************
+// ハンバーガーメニューの設定
+// ************************************/
 
-/**********************************
-以下、ハンバーガーメニューの設定
-************************************/
-
-@media (max-width: 900px) {
-
-  .pc {
-    display: none;
-  }
-
-  #hamburger {
-    background-color: transparent;
-    position: relative;
-    cursor: pointer;
-    margin: 0 0 0 auto;
-    height: 60px;
-    width: 60px;
-  }
-
-  .icon span {
-    position: absolute;
-    left: 15px;
-    width: 30px;
-    height: 4px;
-    background-color: green;
-    border-radius: 8px;
-    transition: ease 0.75s;
-  }
-
-  .icon span:nth-of-type(1) {
-    top: 16px;
-  }
-  .icon span:nth-of-type(2) {
-    top: 28px;
-  }
-  .icon span:nth-of-type(3) {
-    bottom: 16px;
-  }
-
-  .close span:nth-of-type(1) {
-    transform: rotate(45deg);
-    top: 28px;
-  }
-
-  .close span:nth-of-type(2) {
-    opacity: 0;
-  }
-
-  .close span:nth-of-type(3) {
-      transform: rotate(-45deg);
-      top: 28px;
-  }
-
-  .sm {
-      top: 60px;
-      left: 10px;
-      position: absolute;
-      z-index: 10;
-      width: 100%;
-      background-color: rgba(34, 49, 52, 0.9);
-  }
-
-  ul {
-    flex-direction: column;
-
-  }
-
-  a {
-    text-align: center;
-    border-top: solid 0.5px rgba(255, 255, 255, 0.6);
-  }
+#logo {
+ font-size: 25px;
 }
+
+nav{
+ width: 100%;
+ position: relative;
+}
+
+/*ナビゲーション部分*/
+
+.menu{
+  text-align:center;
+  background-color:rgba(255,255,255,0);/* 透過なし*/
+  transition: .5s ease;/*滑らかに表示*/
+  -webkit-transform: translateX(-105%);
+  transform: translateX(-105%);/*x軸方向に左に隠しておく*/
+}
+
+/*OPEN時の動き*/
+.menu.open {
+ -webkit-transform: translateX(0%);
+ transform: translateX(0%);/*中身を表示（右へスライド）*/
+
+}
+
+
+/*トグルボタンのスタイルを指定*/
+.Toggle {
+   display: block;
+    position: fixed;    /* bodyに対しての絶対位置指定 */
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    z-index: 3;
+    right: 15px;
+}
+
+.Toggle span {
+    display: block;
+    position: absolute;
+    width: 50px;
+    border-bottom: solid 4px #333;
+    -webkit-transition: .35s ease-in-out; /*変化の速度を指定*/
+    -moz-transition: .35s ease-in-out;    /*変化の速度を指定*/
+    transition: .35s ease-in-out;     /*変化の速度を指定*/
+
+}
+
+.Toggle span:nth-child(1) {
+    top: 5px;
+}
+.Toggle span:nth-child(2) {
+    top: 18px;
+}
+.Toggle span:nth-child(3) {
+    top: 32px;
+}
+
+
+.Toggle.active span:nth-child(1) {
+    top: 18px;
+    -webkit-transform: rotate(-45deg);/*変化の速度を指定していく*/
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/* 2番目と3番目のspanを45度に */
+.Toggle.active span:nth-child(2),
+.Toggle.active span:nth-child(3) {
+    top: 18px;
+    -webkit-transform: rotate(45deg); /*変化の速度を指定していく*/
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  nav{
+   display: flex;
+  }
+  .Toggle{
+   display: none;
+  }
+  .menu{
+   width: 100%;
+   -webkit-transform: translateX(0);
+   transform: translateX(0);
+  }
+  .menu ul{
+   height: 70px;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: flex-end;
+   align-items: center;
+  }
+
+}
+

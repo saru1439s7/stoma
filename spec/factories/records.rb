@@ -5,11 +5,12 @@ FactoryBot.define do
     barrier { "acceptable" }
     circumscribing { "acceptable" }
     discolor { "acceptable" }
+
     # sequence(:barrier) { |n| "barrier#{n}" }
     # sequence(:circumscribing) { |n| "circumscribing#{n}" }
     # sequence(:discolor) { |n| "discolor#{n}" }
-
     association :patient
+
 
     #enumの設定
     # https://qiita.com/mightysosuke/items/8fc12d43ae5e183a8c74

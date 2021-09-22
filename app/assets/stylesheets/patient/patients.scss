@@ -1,3 +1,24 @@
 // Place all the styles related to the patient/patients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.items{
+  background-image: image-url('items.png');
+  width: 60%;
+  height: auto;
+   background-repeat: no-repeat;
+  // // background: cover;
+}
+.ostomymark{
+  background-image: image-url('mark.jpg');
+  width: 60%;
+  background-repeat: no-repeat;
+  // width: 60px;
+  // hight: 60px;
+}
+.care{
+  background-image: image-url('care.jpg');
+  width: 60%;
+  background-repeat: no-repeat;
+  // width: 60px;
+  // hight: 60px;
+}

@@ -15,6 +15,7 @@ class Patient::OstomiesController < ApplicationController
 
   def edit
     @ostomy = Ostomy.find(params[:id])
+    p @ostomy
   end
 
   def create

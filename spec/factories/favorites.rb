@@ -3,6 +3,5 @@ FactoryBot.define do
   factory :favorite do
     association :staff
     association :ostomy
-
   end
 end

@@ -60,9 +60,7 @@ RSpec.describe "Patient::Dialies", type: :request do
       it '更新する' do
 # byebug
         patch patient_dialy_path(dialy, params:{ dialy: dialy_params})
-
         dialy.reload
-        #expect(Dialy.first.color).to eq 'pink'
       end
     end
 

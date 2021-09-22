@@ -14,84 +14,53 @@
   </head>
   <body>
     <header>
-      <div class="logo">
-          <i class="fa-solid fa-clover"></i>
-           <%= link_to " トップ",patient_calenders_path,class: "btn btn-success btn-lg", data: {"turbolinks" => false}%>
-          </a>
-      </div>
-<!--▽▽ハンバーガーメニュー▽▽-->
-      <div id="hamburger">
-          <div class="icon">
-              <span></span>
-              <span></span>
-              <span></span>
-          </div>
-      </div>
-<!--△△ハンバーガーメニュー△△-->
+    <nav>
 
+       <!--- ロゴ ------>
+            <div id="logo">
 
-<!--▽▽ハンバーガーメニューのリスト▽▽-->
-      <nav class="sm">
-         <ul>
-        <% if patient_signed_in? %> <!--患者さんログイン-->
-            <li class = "nav-item px-5">
-               <%= link_to 'ストーマ記録', new_patient_ostomy_path,class: "btn btn-success btn-lg" %>
-               <%= link_to 'ストーマ記録を見る',patient_ostomies_path,class: "btn btn-success btn-lg" %>
-            </li>
-            <li class = "nav-item px-5">
-                <%= link_to '健康記録', new_patient_dialy_path,class: "btn btn-success btn-lg" %>
-                <%= link_to '健康記録を見る',patient_dialies_path,class: "btn btn-success btn-lg" %>
-            </li>
-            <li class = "nav-item px-7">
-                <%=link_to "ログアウト",destroy_patient_session_path,method: :delete,class: "btn btn-success btn-lg"%>
-            </li>
-           <% else %><!--患者さん未ログイン-->
-            <li>
-                <%=link_to"ログインする",new_patient_session_path,class:"btn btn-success btn-lg"%>
-            </li>
-            <li class = "nav-item px-5"></li>
-            <li class = "nav-item px-5"></li>
-           <%end%>
-           <% if staff_signed_in? %><!--医療スタッフログイン-->
-            <li class = "nav-item px-5">
-                <%= link_to "患者一覧",staff_patients_path,class: "btn btn-success btn-lg" %>
-            </li>
-            <li class = "nav-item px-5">
-                <%= link_to "スタッフログアウト",destroy_staff_session_path,methods: :delete ,class: "btn btn-success btn-lg" %>
-            </li>
-           <% else %><!--医療スタッフ未ログイン-->
-            <li class = "nav-item px-5">
-                <%=link_to"スタッフログイン",new_staff_session_path,class:"btn btn-success btn-lg"%>
-            </li>
-           <%end%>
-        </ul>
-     </nav>
-<!--△△ハンバーガーメニューのリスト△△-->
+                <%= link_to " トップ",root_path,class: "btn btn-success btn-lg"%>
 
-<!--▽▽ヘッダーリスト▽▽-->
-      <nav class="pc"><!--pcクラスを追記-->
-        <ul>
-           <% if patient_signed_in? %> <!--患者さんログイン-->
-          <li><%= link_to 'ストーマ記録', new_patient_ostomy_path,class: "btn btn-outline-success btn-lg" %></li>
-          <li><%= link_to 'ストーマ記録を見る',patient_ostomies_path,class: "btn btn-outline-success btn-lg" %></li>
-          <li><%= link_to '健康記録', new_patient_dialy_path,class: "btn btn-outline-success btn-lg" %></li>
-          <li><%= link_to '健康記録を見る',patient_dialies_path,class: "btn btn-outline-success btn-lg" %></li>
-          <li><%= link_to 'マイページを見る',edit_patient_patient_path(current_patient.id),class: "btn btn-outline-success btn-lg" %></li>
-          <li><%=link_to "ログアウト",destroy_patient_session_path,method: :delete,class: "btn btn-outline-success btn-lg"%></li>
-          <% else %><!--患者さん未ログイン-->
-          <li><%=link_to"ログインする",new_patient_session_path,class:"btn btn-success btn-lg"%></li>
-          <%end%>
-          
-          <% if staff_signed_in? %><!--医療スタッフログイン-->
-          <li class = "nav-item px-5"><%= link_to "患者一覧",staff_patients_path,class: "btn btn-success btn-lg" %></li>
-          <li> <%= link_to "スタッフログアウト",destroy_staff_session_path,method: :delete,class: "btn btn-success btn-lg" %></li>
-          <% else %><!--医療スタッフ未ログイン-->
-          <li class = "nav-item px-5"><%=link_to"スタッフログイン",new_staff_session_path,class:"btn btn-success btn-lg"%></li>
-         <%end%>
-        </ul>
-      </nav>
+            </div>
+            <!--- ロゴ ------>
+            <!-- ハンバーガーメニュー -->
+            <div class="Toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+        </div>
+
+       <!-------------- drawer ここまで-->
+
+        <div class="menu">
+            <ul>
+              <% if patient_signed_in? %> <!--患者さんログイン-->
+                  <li><%= link_to " カレンダー",patient_calenders_path,class: "btn btn-success btn-lg", data: {"turbolinks" => false}%></li>
+                  <li><%= link_to 'ストーマ記録', new_patient_ostomy_path,class: "btn btn-success btn-lg" %></li>
+                  <li><%= link_to 'ストーマ記録を見る',patient_ostomies_path,class: "btn btn-success btn-lg" %></li>
+                  <li><%= link_to '健康記録', new_patient_dialy_path,class: "btn btn-success btn-lg" %></li>
+                  <li><%= link_to '健康記録を見る',patient_dialies_path,class: "btn btn-success btn-lg" %></li>
+                  <li><%= link_to 'マイページを見る',edit_patient_patient_path(current_patient.id),class: "btn btn-success btn-lg" %></li>
+                  <li><%=link_to "ログアウト",destroy_patient_session_path,method: :delete,class: "btn btn-success btn-lg"%></li>
+              <% elsif staff_signed_in? %><!--医療スタッフログイン-->
+                  <li><%= link_to "患者一覧",staff_patients_path,class: "btn btn-success btn-lg" %></li>
+                  <li><%= link_to "スタッフログアウト",destroy_staff_session_path,method: :delete,class: "btn btn-success btn-lg" %></li>
+              <% else %><!--患者さん未ログイン-->
+                  <li><%=link_to"ログインする",new_patient_session_path,class: "btn btn-success btn-lg"%></li>
+              <%end%>
+              </ul>
+        </div>
+    </nav>
     </header>
 
+
+
+
+
+
+
+
     <%= yield %>
+
   </body>
 </html>

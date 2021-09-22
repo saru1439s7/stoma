@@ -2,8 +2,8 @@ FactoryBot.define do
  #医療staffがかくストマ記録
     factory :comment do
       sequence(:comment) {"xyz"}
+      comment {"xyz"}
       # { |n| "comment#{n}" }
-
       association :ostomy
       association :staff
     end

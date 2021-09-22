@@ -17,7 +17,7 @@ RSpec.describe "Patient::Ostomies", type: :request do
     h_size: '30 ',
     w_size: '30',
     comment: 'ok',
-    # image: '',
+    #image: '',
     }
     end
 
