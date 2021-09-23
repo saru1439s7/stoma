@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     sessions: 'patients/sessions',
     registrations: 'patients/registrations',
     passwords: 'patients/passwords'}
-    
     #トップページ
     root 'patient/patients#top'
     root 'staff/staffs#top'

@@ -49,7 +49,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  
+
 end
 
 group :test do
@@ -60,11 +60,13 @@ group :test do
   gem 'chromedriver-helper'
   #Rspecの記述
    #gem 'capybara'
+   gem 'webdrivers'
    gem 'rspec-rails'
    gem "factory_bot_rails"
    gem 'faker'
    gem 'database_cleaner'
    gem 'spring-commands-rspec'
+   gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -81,6 +83,7 @@ gem 'kaminari','~> 1.2.1'
 gem 'dotenv-rails'
 gem 'rails-i18n'
 gem 'pry-rails'
+
 #gem 'better_errors'
 
 #カレンダー
