@@ -1,8 +1,13 @@
 class Patient::DialiesController < ApplicationController
+  #患者の健康記録(体調や血圧など)/基本、記録は消さないためdestroyはなし
  before_action :authenticate_patient!
   def index
     @dialies = current_patient.dialies.all.page(params[:page]).per(7).reverse_order
-     #  Dialy.where( parient.id: current_patient.id)#全体の中から絞って持って
+     #Dialy.where( parient.id: current_patient.id)#全体の中から絞って持ってくる
+  end
+  
+  def show
+    @dialy = Dialy.find(params[:id])
   end
 
   def new
@@ -14,28 +19,27 @@ class Patient::DialiesController < ApplicationController
   end
 
   def create
-    # binding.irb
     @dialy = Dialy.new(dialy_params)
     @dialy.patient_id = current_patient.id
-   if @dialy.save
-     redirect_to patient_dialy_path(@dialy)
-   else
-     render :new
-   end
+    return redirect_to patient_dialy_path(@dialy) if @dialy.save
+    render :new
+  # if @dialy.save
+  #   redirect_to patient_dialy_path(@dialy)
+  # else
+  #   render :new
+  # end
   end
 
 
   def update
     @dialy = Dialy.find(params[:id])
-   if @dialy.update(dialy_params)
-     redirect_to patient_dialy_path(@dialy)
-   else
-     render :edit
-   end
-  end
-
-  def show
-    @dialy = Dialy.find(params[:id])
+    return redirect_to patient_dialy_path(@dialy) if @dialy.update(dialy_params)e
+    render :edit
+    # if @dialy.update(dialy_params)
+    #   redirect_to patient_dialy_path(@dialy)
+    # else
+    #   render :edit
+    # end
   end
 
  private

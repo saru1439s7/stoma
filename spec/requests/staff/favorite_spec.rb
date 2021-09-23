@@ -41,10 +41,8 @@ RSpec.describe "Staff::Favorites", type: :request do
         p Favorite.all.count
         expect{
           delete staff_ostomy_favorites_path(ostomy)
-
          }.to change { Favorite.all.count }.by(-1)
-        # }.to change{Favorite.count}.from().to(1)
-        # }.to change{ Favorite.count }.by(-1)
+    
         p Favorite.all.count
         p '-------------'
       end

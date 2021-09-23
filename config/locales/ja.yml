@@ -7,6 +7,15 @@ ja:
           skin: ひふの状態
         dialy:
           color:
+        record:
+         adjacent: 近接部
+         barrier: 皮膚保護剤部
+         circumscribing: 皮膚保護剤外部
+         discolor: ABCの合わせた部位の色調の変化
+        staff:
+         name: 名前
+         email: メールアドレス
+         password: パスワード
         user:
           attributes:
             email:

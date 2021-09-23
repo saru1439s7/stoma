@@ -1,13 +1,32 @@
+
 <div class="container">
   <div class="row">
     <div class="col-9">
-      <%= render 'layouts/errors', obj: @record %>
-     <h4>ABCモデルでストーマの状態を記録する</h4>
+     <h4 class = "mt-md-4 mb-md-2">ABCモデルでストーマの状態を記録する</h4>
+     <table class='table table-borderless'>
+       <tr>
+         <th>紅斑</th>
+         <td>圧迫すると消失する赤み(0点)</td>
+       </tr>
+       <tr>
+         <th>びらん</th>
+         <td>表皮剥離を含む、表皮と真皮浅層の欠損(1点)</td>
+       </tr>
+       <tr>
+         <th>水泡/膿疱斑</th>
+         <td>表皮or真皮内に体液が貯留(3点)</td>
+       </tr>
+       <tr>
+         <th>潰瘍/組織増大</th>
+         <td>圧迫すると消失する赤み(15点)</td>
+       </tr>
+     </table>
+     <%= render 'layouts/errors', obj: @record %>
     </div>
   </div>
 <%= form_with(model:@record, url: staff_patient_records_path(@patient.id,@record.id),method: :post ,local: true) do |f| %>
   <div class="row">
-    <div class="col-11">
+    <div class="col-9">
      <table class='table table-borderless'>
    <tr>
      <th>A:近接部:ストーマからストーマ装具の皮膚保護剤までの範囲</br></th>
@@ -96,5 +115,6 @@
    </tr>
   </table>
     </div>
+    <div class = "col-3 abc"></div>
   </div>
 <%end%>

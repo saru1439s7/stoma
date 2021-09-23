@@ -1,10 +1,12 @@
 class Patient::CalendersController < ApplicationController
+  #患者さんが予定を管理できる
  before_action :authenticate_patient!
+ 
   def index
     @calender = Calender.new
     @calenders = Calender.all
-    #@edit_calender = Calender.find(params[:calender_id])
   end
+  
   def create
     @calender = Calender.new(calender_params)
     @calender.patient_id = current_patient.id
@@ -24,20 +26,24 @@ class Patient::CalendersController < ApplicationController
     @calender = Calender.find(params[:id])
   end
 
-  def destroy #jsというリクエストでくる
+  def destroy #jsリクエストでくる
     @calender = Calender.find(params[:id])
     @calender.destroy
     #js.erb <
     #html.erb
     #redirect_to patient_calenders_path
   end
-
-   def show
-    #@calender = Calender.find(params[:id])
-   end
+  
   def new
     @calender = Calender.new
   end
+  
+  #モーダルで表示するためなしとした
+  # def show
+  # 　#@calender = Calender.find(params[:id])
+  # end
+   
+  
   private
    def calender_params
      params.require(:calender).permit(:body,:title,:starts_at,:ends_at)

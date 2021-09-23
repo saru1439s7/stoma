@@ -2,7 +2,9 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-
+  def new_staff_session_path_for(resource)
+    staff_patients_path
+  end
 
 
 
