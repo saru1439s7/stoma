@@ -5,7 +5,7 @@ class Patient::DialiesController < ApplicationController
     @dialies = current_patient.dialies.all.page(params[:page]).per(7).reverse_order
      #Dialy.where( parient.id: current_patient.id)#全体の中から絞って持ってくる
   end
-  
+
   def show
     @dialy = Dialy.find(params[:id])
   end
@@ -33,7 +33,7 @@ class Patient::DialiesController < ApplicationController
 
   def update
     @dialy = Dialy.find(params[:id])
-    return redirect_to patient_dialy_path(@dialy) if @dialy.update(dialy_params)e
+    return redirect_to patient_dialy_path(@dialy) if @dialy.update(dialy_params)
     render :edit
     # if @dialy.update(dialy_params)
     #   redirect_to patient_dialy_path(@dialy)
