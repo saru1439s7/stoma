@@ -1,12 +1,12 @@
 class Patient::CalendersController < ApplicationController
   #患者さんが予定を管理できる
  before_action :authenticate_patient!
- 
+
   def index
     @calender = Calender.new
     @calenders = Calender.all
   end
-  
+
   def create
     @calender = Calender.new(calender_params)
     @calender.patient_id = current_patient.id
@@ -33,17 +33,17 @@ class Patient::CalendersController < ApplicationController
     #html.erb
     #redirect_to patient_calenders_path
   end
-  
+
   def new
     @calender = Calender.new
   end
-  
-  #モーダルで表示するためなしとした
+
+  # モーダルで表示するためなしとした
   # def show
   # 　#@calender = Calender.find(params[:id])
   # end
-   
-  
+
+
   private
    def calender_params
      params.require(:calender).permit(:body,:title,:starts_at,:ends_at)

@@ -18,9 +18,9 @@ Rails.application.routes.draw do
     resources :patients,:except => [:destroy,:new,:index] #コミュニティ機能つけるなら:index追加
     resources :ostomies,:except =>  [:destroy]
     resources :dialies,:except => [:destroy]
-    resources :calenders
+    resources :calenders,:except => [:show]
   end
-  
+
   #医療スタッフ 記録は基本削除したいためdestoryはなしとした
   namespace :staff do
      #患者さんの書いたストーマの記録を見ていいね、コメントをする

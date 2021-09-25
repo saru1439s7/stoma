@@ -35,15 +35,18 @@ RSpec.describe "Records", type: :system do
         before do
           FactoryBot.create(:record,patient: patient)
           visit new_staff_session_path
-          fill_in 'メールアドレス', with: staff.email
-          fill_in 'パスワード', with: staff.password
+          fill_in 'staff[email]', with: staff.email
+          fill_in 'staff[password]', with: staff.password
           click_button 'ログイン'
         end
         describe '記録作成ページ' do
           context '新規記録' do
             before do
-              visit new_staff_patient_record_path    circumscribing
-              expect(page).to have_checked_field('adjacent', visible:false)
+              visit new_staff_patient_record_path(patient)
+              # expect(page).to have_choosed_field 'adjacent', visible:false
+              # fill_in 'record[adjacent]', with: record.adjacent
+              expect(page).to have_selector("active", text: "adjacent")
+              
               expect(page).to have_checked_field('barrier', visible:false)
               expect(page).to have_checked_field('circumscribing', visible:false)
               expect(page).to have_checked_field('discolor', visible:false)
