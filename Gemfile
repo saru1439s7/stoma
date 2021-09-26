@@ -103,3 +103,6 @@ group :production do
 end
 
  gem 'listen'
+
+ #ransack検索機能
+ gem 'ransack'

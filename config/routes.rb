@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   #医療スタッフ 記録は基本削除したいためdestoryはなしとした
   namespace :staff do
+
      #患者さんの書いたストーマの記録を見ていいね、コメントをする
     get '/ostomies/index/:patient_id',to: 'ostomies#index', as: 'ostomy_index'
     get '/ostomies/show/:ostomy_id/:patient_id',to: 'ostomies#show', as: 'ostomy_show'
@@ -34,6 +35,9 @@ Rails.application.routes.draw do
     resources :dialies,:only => [:index,:show]
      #患者ごとに医療スタッフが記録する
     resources :patients,:except => [:destroy,:new,:create] do
+      collection do
+          get 'search'
+      end
       resources :records,:except => [:destroy]
     end
   end

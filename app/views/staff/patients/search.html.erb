@@ -1,0 +1,18 @@
+<h1>検索結果</h1>
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |patient| %>
+      <tr>
+        <td><%= link_to patient.name,staff_patient_path(patient.id),class: "btn btn-success" %></td>
+         <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

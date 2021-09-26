@@ -11,7 +11,6 @@ FactoryBot.define do
     # sequence(:discolor) { |n| "discolor#{n}" }
     association :patient
       
-
     #enumの設定
     # https://qiita.com/mightysosuke/items/8fc12d43ae5e183a8c74
     # Record.adjacents.keys.each do |adjacent|
