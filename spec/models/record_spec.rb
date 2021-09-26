@@ -1,16 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe Record, type: :model do
-  #pending "add some examples to (or delete) #{__FILE__}"
-   before do  
-    @patient = build(:patient)
-    @record = build(:record,patient: @patient)
+  let(:record) {FactoryBot.create(:record) }
+
+   before do
+    # let(:record) {FactoryBot.create(:record) }
+    # describe 'enum' do
+    #   it { is_expected.to enum(:adjacent).with_values(acceptable:0,erythema:1,erosion:2,blister:3,ulceration:15).with_prefix}
+    #   it { is_expected.to define_enum_for(:barrier).with_values(acceptable:0,erythema:1,erosion:2,blister:3,ulceration:15).with_prefix }
+    #   it { is_expected.to define_enum_for(:circumscribing).with_values(acceptable:0,erythema:1,erosion:2,blister:3,ulceration:15).with_prefix }
+    #   it { is_expected.to define_enum_for(:discolor).with_values(acceptable:0,spot:1,depigmentation:2,both:3).with_prefix }
+    # end
    end
 
     describe 'バリテーション' do
-        it 'ABCd設定されていれば、OK'do
-         expect(@record.valid?).to eq(true)
-       end
+      it 'ABCD設定されていれば、OK'do
+        expect(record.valid?).to eq(true)
+      end
 
        it 'adjacentが空はNG' do
           record_without_adjacent = build(:record, adjacent: nil)
@@ -40,6 +46,26 @@ RSpec.describe Record, type: :model do
       context 'Patientモデルとの関係' do
         it 'belongs_toとなっている' do
           expect(Record.reflect_on_association(:patient).macro).to eq :belongs_to
+        end
+      end
+    end
+
+    describe 'ABCモデルの計算テスト' do
+      context 'enumで設定したA+B+Cの合計が計算される' do
+        it "A+B+Cの合計計算する" do
+         expect(record.point).to eq 0
+         record.adjacent = "erythema"
+         record.save
+         expect(record.point).to eq 1
+         record.adjacent = "erosion"
+         record.save
+         expect(record.point).to eq 2
+         record.adjacent = "blister"
+         record.save
+         expect(record.point).to eq 3
+         record.adjacent = "ulceration"
+         record.save
+         expect(record.point).to eq 15
         end
       end
     end

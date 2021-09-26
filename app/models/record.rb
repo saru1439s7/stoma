@@ -22,6 +22,7 @@ class Record < ApplicationRecord
    def point
      adjacent_before_type_cast + barrier_before_type_cast + circumscribing_before_type_cast
    end
+   
    #Dの点数を表示させる
    def d_point
      discolor_before_type_cast
