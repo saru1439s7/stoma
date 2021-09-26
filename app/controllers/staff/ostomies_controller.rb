@@ -24,7 +24,7 @@ class Staff::OstomiesController < ApplicationController
     # render :show
     # end
   end
-  
+
   private
     def ostomy_params
      params.require(:ostomy).permit(:color,:edema,:skin,:h_size,:w_size,:comment,:image)

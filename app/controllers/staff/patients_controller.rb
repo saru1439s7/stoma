@@ -3,7 +3,7 @@ class Staff::PatientsController < ApplicationController
   before_action :authenticate_staff!
   before_action :set_q, only: [:index, :search]
 
-  def index
+  def index 
    @patients = Patient.all.page(params[:page]).per(7).reverse_order
   end
 
