@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :ostomies,:except =>  [:destroy]
     resources :dialies,:except => [:destroy]
     resources :calenders,:except => [:show]
+    
+    resources :notifications, only: :index
   end
 
   #医療スタッフ 記録は基本削除したいためdestoryはなしとした
@@ -27,6 +29,8 @@ Rails.application.routes.draw do
      #患者さんの書いたストーマの記録を見ていいね、コメントをする
     get '/ostomies/index/:patient_id',to: 'ostomies#index', as: 'ostomy_index'
     get '/ostomies/show/:ostomy_id/:patient_id',to: 'ostomies#show', as: 'ostomy_show'
+    # resources :notifications, only: :index
+    # get '/notifications/index/:patient_id',to: 'notifications#index', as: 'notifications/index'
     resources :ostomies,:only => [:index] do
      resources :comments, only: [:create, :destroy]
      resource :favorites, only: [:create, :destroy]

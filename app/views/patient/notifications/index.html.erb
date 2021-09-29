@@ -1,0 +1,24 @@
+<div class = "container" id="notice">
+  <div class = "row">
+    <div class = "col-10">
+      <table class ="table">
+        <% if @notifications.exists? %>
+        <% @notifications.includes([:visitor]).each do |notification| %>
+          <% visitor = notification.visitor %>
+           <%= visitor.name %>さんから
+          <% case notification.action %>
+           <% when 'comment' then %>
+              <% if notification.present? %>
+                <!--  <  % case notification.action%>-->
+                <p>コメントが来ています</p>
+              <% else %>
+                <p> 通知はありません</p>
+              <% end %>
+          <% end %>
+          <% end %>
+       <% end %>
+      </table>
+
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@ class Record < ApplicationRecord
    has_one_attached :image
    belongs_to :patient
    
+   
   validates :adjacent, {presence: true}
   validates :barrier, {presence: true}
   validates :circumscribing, {presence: true}

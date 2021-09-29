@@ -26,6 +26,10 @@
 
 //= require_tree .
 
+
+
+
+
 //https://the-oreno-michi.com/103/参考に作成
 
 $(function () {
@@ -128,4 +132,11 @@ $(function() {
       //}
 
       //return false;
-    //});
+        //});
+    $('#notice').click(function(){
+      $('#cover, #modal').fadeTo(200,1);
+    });
+    
+    $('#close, #cover').click(function(){
+      $('#cover, #modal').fadeTo(200,0).hide();
+    });

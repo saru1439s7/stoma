@@ -6,8 +6,8 @@
    </div>
   </div>
     <div class="row">
-     <div class="col-9 align-middle font-weight-bold center-block">
-      <table class='table text-center'>
+      <div class="col-9 align-middle font-weight-bold center-block">
+       <table class='table text-center'>
         <tr>
           <th>ストーマのいろ</th>
           <td><%= @ostomy.color_i18n%></td>
@@ -43,20 +43,31 @@
           </td>
         </tr>
         <tr>
-          <th>スタッフからのコメント</th>
-          <td id="staff_comment">
-            <% @ostomy.comments.each do |comment| %>
-              <%= comment.staff.name %>
-              <%= comment.created_at.strftime('%Y/%m/%d') %>
-              <%= comment.comment %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
           <th></th>
           <td><%= link_to '編集する',edit_patient_ostomy_path(@ostomy), class: "btn btn-success btn-lg" %></td>
         </tr>
-     </table>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+     <div class="col-9">
+       <h3>スタッフからコメント</h3>
+       <table class ="table">
+         <% @ostomy.comments.includes([:staff]).each do |comment| %>
+        <tr>
+          <th></th>
+          <td>
+            <%= comment.created_at.strftime('%Y/%m/%d') %>
+            <%= comment.staff.name %>より
+          </td>
+          <td>
+            <%= comment.comment %>
+          </td>
+        </tr>
+        <% end %>
+       </table>
+
+
 
      </div>
     </div>
