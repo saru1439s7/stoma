@@ -1,21 +1,24 @@
-<div "container">
+<div class ="container">
  <div class='row'><%= paginate @dialies %>
-   <% @dialies.each do |dialy|%>
-     <table>
+  <div class="col-8">
+
+     <table class = 'table'>
          <tr>
              <th>記録した日付</th>
              <th>血圧</th>
              <th>調子</th>
+             <th></th>
          </tr>
-
+         <% @dialies.each do |dialy|%>
           <tr>
             <td><%= dialy.created_at.strftime('%Y/%m/%d') %></td>
             <td><%= dialy.systolic_bp%>/<%= dialy.diastolic_bp%>mmHg</td>
             <td><%= dialy.feeling_i18n %></td>
+            <td><%=link_to "詳細を見る",staff_dialy_show_path(dialy,dialy.patient_id),class: "btn btn-success btn-lg"%></td>
           </tr>
-          <tr><td><%=link_to "詳細を見る",staff_dialy_path(dialy),class: "btn btn-success btn-lg"%></td></tr>
+          <%end%>
      </table>
-       <%end%>
 
+</div>
  </div>
 </div>

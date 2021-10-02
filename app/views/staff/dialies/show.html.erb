@@ -1,8 +1,7 @@
 <div class="container">
  <div class="row">
-
-   <h2>健康記録<br><%= @dialy.created_at.strftime('%Y/%m/%d') %></h2>
     <div class="col-8">
+    <h2>健康記録<br><%= @dialy.created_at.strftime('%Y/%m/%d') %></h2>
      <table class='table table-borderless'>
         <tr>
           <th>血圧</th>
@@ -29,12 +28,19 @@
           <td><%= @dialy.feeling_i18n%></td>
         </tr>
         <tr>
-          <th>コメントメモ</th>
-          <td><%= @dialy.comment%></td>
+          <th>コメントメモ/感情分析スコアは-1.0〜1.0</th>
+          <td><%= @dialy.comment%>
+          <p class="sentiment-score">本文の感情分析スコア[<%= @dialy.score %>]</p></td>
         </tr>
         <tr>
           <th>写真</th>
-          <td><!--< %= attachment_image_tag(@dialy, :image, fallback: "no_image.jpg", size: "300x300") %>--></td>
+          <td>
+            <% if @dialy.image.attached? %>
+            <%= image_tag @dialy.image %>
+            <% else %>
+            <%= image_tag 'no_image.jpeg' %>
+            <% end %>
+          </td>
         </tr>
      </table>
   </div>

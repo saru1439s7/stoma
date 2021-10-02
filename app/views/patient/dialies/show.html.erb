@@ -33,7 +33,8 @@
         </tr>
         <tr>
           <th>コメントメモ</th>
-          <td><%= @dialy.comment%></td>
+          <td><%= @dialy.comment%>
+          <p class="sentiment-score">本文の感情分析スコア[<%= @dialy.score %>]</p></td>
         </tr>
         <tr>
           <th>写真</th>

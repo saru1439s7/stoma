@@ -10,12 +10,13 @@
          <th></th>
          <th></th>
          <th></th>
+         <th></th>
        </tr>
        <%@patients.each do |patient|%>
        <tr>
          <td><%= link_to patient.name,staff_patient_path(patient.id),class: "btn btn-success" %></td>
-         <td><%= link_to "患者さんのストーマ記録一覧を見る",staff_ostomy_index_path(patient.id),class: "btn btn-success" %></td>
-
+         <td><%= link_to "患者さんのストーマ記録一覧",staff_ostomy_index_path(patient.id),class: "btn btn-success" %></td>
+         <td><%= link_to "患者さんの健康記録一覧",staff_dialy_index_path(patient.id),class: "btn btn-success" %></td>
          <td><%= link_to "記録をかく",new_staff_patient_record_path(patient.id),class: "btn btn-success"  %></td>
          <td><%= link_to "記録一覧",staff_patient_records_path(patient.id),class: "btn btn-success"  %></td>
          <!--<td>< %= link_to "記録一覧を見る",staff_patient_record_path(patient.id,@record_id),class: "btn btn-success"  %></td>-->
