@@ -8,8 +8,7 @@ class Staff::DialiesController < ApplicationController
 
   def show
     @dialy = Dialy.find(params[:dialy_id])
-    #ここ追加
-    # @dialy.score = Language.get_data(dialy_params[:comment])
+
   end
 
   private

@@ -1,6 +1,5 @@
 <div class="container">
  <div class="row">
-
    <h3><%=@record.patient.name%>さんのストマの記録<%=@record.created_at.strftime('%Y/%m/%d')%></h3>
     <div class="col-8">
      <table class='table table-borderless'>
@@ -55,7 +54,7 @@
           </td>
         </tr>
      </table>
-   <%= link_to '編集する',edit_staff_patient_record_path, class: "btn btn-success btn-lg" %>
-  </div>
+      <%= link_to '編集する',edit_staff_patient_record_path, class: "btn btn-success btn-lg" %>
+    </div>
  </div>
 </div>

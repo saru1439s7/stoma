@@ -22,10 +22,10 @@ class Patient::DialiesController < ApplicationController
     @dialy = Dialy.new(dialy_params)
     @dialy.patient_id = current_patient.id
     @dialy.score = Language.get_data(dialy_params[:comment])
-    # binding.irb
-    # tags = Vision.get_image_data(@dialy.image)
-    # tags.each do |tag|
-    # @dialy.tags.create(name: tag)
+    # binding.irb#get_dataわかりづらい
+    # texts = Vision.get_image_data(@dialy.image)
+    # texts.each do |text|
+    # @dialy.texts.create(name: text)
     # end
 
     return redirect_to patient_dialy_path(@dialy) if @dialy.save

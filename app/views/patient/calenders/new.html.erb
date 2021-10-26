@@ -1,27 +1,27 @@
 <div class="container">
   <h4>予定を登録する</h4>
-  <div class="row">
-<%=form_with model: @calender,url: patient_calenders_path, local: true do |f|%>
-<table>
-   <tr>
-   <th>タイトル</th>
-   <td><%= f.text_field :title %></td>
-   </tr>
-   <tr>
-   <th>内容</th>
-   <td><%= f.text_area :body %></td>
-   </tr>
-   <tr>
-   <th>開始時刻</th>
-   <td><%= f.datetime_select :starts_at %></td>
-   </tr>
-   <tr>
-   <th>終了時刻</th>
-   <td><%= f.datetime_select :ends_at %></td>
-   </tr>
-   <tr>
-     <th><%=f.submit "登録する",class: "btn btn-success btn-lg"%></th></tr>
-</table>
-<%end%>
-</div>
+   <div class="row">
+    <%=form_with model: @calender,url: patient_calenders_path, local: true do |f|%>
+      <table>
+         <tr>
+           <th>タイトル</th>
+           <td><%= f.text_field :title %></td>
+         </tr>
+         <tr>
+           <th>内容</th>
+           <td><%= f.text_area :body %></td>
+         </tr>
+         <tr>
+           <th>開始時刻</th>
+           <td><%= f.datetime_select :starts_at %></td>
+         </tr>
+         <tr>
+           <th>終了時刻</th>
+           <td><%= f.datetime_select :ends_at %></td>
+         </tr>
+         <tr>
+           <th><%=f.submit "登録する",class: "btn btn-success btn-lg"%></th></tr>
+      </table>
+    <%end%>
+ </div>
 </div>

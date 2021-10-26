@@ -1,8 +1,9 @@
 <div class="container">
-  <div class="row">
+    <div class="row">
    <div class="col-8  p-lg-4">
     <h2>ストーマの記録:<%=@ostomy.created_at.strftime('%Y/%m/%d') %>
-     <div class="favorite">　 <%= @ostomy.favorites.count%><i class="fas fa-crown"></i>いいね</div></h2>
+     <div class="favorite"><%= @ostomy.favorites.count%><i class="fas fa-crown"></i>いいね</div>
+    </h2>
    </div>
   </div>
     <div class="row">
@@ -66,9 +67,6 @@
         </tr>
         <% end %>
        </table>
-
-
-
      </div>
     </div>
 </div>

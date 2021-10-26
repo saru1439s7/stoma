@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row">
     <div class="col-8">
-    <h2>健康記録<br><%= @dialy.created_at.strftime('%Y/%m/%d') %></h2>
+     <h2>健康記録<br><%= @dialy.created_at.strftime('%Y/%m/%d') %></h2>
      <table class='table table-borderless'>
         <tr>
           <th>血圧</th>
@@ -30,7 +30,7 @@
         <tr>
           <th>コメントメモ/感情分析スコアは-1.0〜1.0</th>
           <td><%= @dialy.comment%>
-          <p class="sentiment-score">本文の感情分析スコア[<%= @dialy.score %>]</p></td>
+          <p class="sentiment-score">感情分析スコア[<%= @dialy.score %>]</p></td>
         </tr>
         <tr>
           <th>写真</th>
@@ -43,6 +43,6 @@
           </td>
         </tr>
      </table>
-  </div>
+    </div>
  </div>
 </div>

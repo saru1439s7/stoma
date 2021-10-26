@@ -18,11 +18,6 @@ class Staff::OstomiesController < ApplicationController
     @comment.ostomy_id = ostomy.id
     return redirect_to staff_ostomy_path(@ostomy) if @comment.save
     render :show
-    # if @comment.save
-    # redirect_to staff_ostomy_path(@ostomy)
-    # else
-    # render :show
-    # end
   end
 
   private

@@ -26,11 +26,7 @@ class Staff::PatientsController < ApplicationController
   end
 
   def search
-    # @q = Patients.ransack(params[:q])
-    # @patients = @q.result(distinct: true)
-
      @results = @q.result
-    # @patients = Patient.all.page(params[:page]).per(7).reverse_order
   end
 
   private

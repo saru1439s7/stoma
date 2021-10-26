@@ -1,9 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-8">
-     <h2><%=@ostomy.patient.name%>さんのストマの記録:<%=@ostomy.created_at.strftime('%Y/%m/%d') %>
+     <h2>
+       <%=@ostomy.patient.name%>さんのストマの記録:<%=@ostomy.created_at.strftime('%Y/%m/%d') %>
      </h2>
-      <div class="favorite"><%= render 'staff/favorites/favorite',ostomy: @ostomy %></div>
+      <div class="favorite">
+        <%= render 'staff/favorites/favorite',ostomy: @ostomy %>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -36,11 +39,11 @@
       <tr>
         <th>写真</th>
         <td>
-        <!--< % if@ostomy.image.attached? %>
-        < %= image_tag @ostomy.image %>
-        < % else %>
-        < %= image_tag 'no_image.jpg' %>
-        < % end %>-->
+          <% if @ostomy.image.attached? %>
+          <%= image_tag @ostomy.image %>
+          <% else %>
+          <%= image_tag 'no_image.jpg' %>
+          <% end %>
         </td>
       </tr>
       <tr>

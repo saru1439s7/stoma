@@ -34,7 +34,7 @@
         <tr>
           <th>コメントメモ</th>
           <td><%= @dialy.comment%>
-          <p class="sentiment-score">本文の感情分析スコア[<%= @dialy.score %>]</p></td>
+          <p class="sentiment-score">感情分析スコア[<%= @dialy.score %>]</p></td>
         </tr>
         <tr>
           <th>写真</th>
@@ -50,7 +50,7 @@
           <th></th>
           <td> <%=link_to '編集する',edit_patient_dialy_path(@dialy), class: "btn btn-success btn-lg" %></td>
         </tr>
-     </table>
+      </table>
     </div>
   </div>
 </div>
