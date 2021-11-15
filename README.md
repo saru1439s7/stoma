@@ -31,6 +31,7 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+![スクリーンショット 2021-11-15 22 21 53](https://user-images.githubusercontent.com/84264884/141789106-c29279eb-55c3-428a-8590-74dd4c4a69a2.png)
 
 ## 使用素材
 - イラストAC:https://www.ac-illust.com
